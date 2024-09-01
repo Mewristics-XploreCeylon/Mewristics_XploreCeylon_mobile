@@ -1,6 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:xploreceylon_mobile/config/app_router.dart/app_router.dart';
 
-void main() {
+import 'resources/theme.dart';
+
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  // await Firebase.initializeApp(
+  //   options: DefaultFirebaseOptions.currentPlatform,
+  // );
+  // await initializeDepenedencies();
   runApp(const MainApp());
 }
 
@@ -9,12 +17,11 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: Scaffold(
-        body: Center(
-          child: Text('Hello World!'),
-        ),
-      ),
-    );
+    return MaterialApp.router(
+        debugShowCheckedModeBanner: false,
+        title: 'XploreCeylon',
+        routerConfig: AppRouter().goRouterConfig,
+        theme: getApplicationTheme(),
+        );
   }
 }
