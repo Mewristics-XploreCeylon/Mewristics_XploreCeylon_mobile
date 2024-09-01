@@ -3,6 +3,7 @@ import 'package:go_router/go_router.dart';
 import 'package:xploreceylon_mobile/config/app_router.dart/routes.dart';
 import 'package:xploreceylon_mobile/main.dart';
 import 'package:xploreceylon_mobile/screens/visa_screens/visa_onboarding.dart';
+import 'package:xploreceylon_mobile/screens/visa_screens/visa_personal_information.dart';
 
 class AppRouter {
   static final _rootNavigatorKey = GlobalKey<NavigatorState>();
@@ -15,7 +16,7 @@ class AppRouter {
             name: Routes.splash,
             path: '/',
             pageBuilder: (BuildContext context, GoRouterState state) {
-              return const MaterialPage(child: VisaOnboarding());
+              return const MaterialPage(child: VisaPersonalInformation());
             }),
 
             GoRoute(
@@ -23,6 +24,13 @@ class AppRouter {
               path: "/visaOnboarding",
               pageBuilder: (BuildContext context, GoRouterState state) {
                 return const MaterialPage(child: VisaOnboarding());
+              }
+            ),
+                        GoRoute(
+              name: Routes.visaPersonalInformation,
+              path: "/visaPersonalInformation",
+              pageBuilder: (BuildContext context, GoRouterState state) {
+                return const MaterialPage(child: VisaPersonalInformation());
               }
             )
       ]);
