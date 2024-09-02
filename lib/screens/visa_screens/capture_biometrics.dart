@@ -98,7 +98,7 @@ class _ScanBiometricsState extends State<ScanBiometrics> {
             "This is a verification of your identity in order to proceed with the visa application process.",
         options: const AuthenticationOptions(
           stickyAuth: true,
-          biometricOnly: false,
+          biometricOnly: true,
         ),
       );
 
