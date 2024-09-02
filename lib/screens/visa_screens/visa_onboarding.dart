@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:xploreceylon_mobile/constants/sizes.dart';
+import 'package:xploreceylon_mobile/main.dart';
+
+import '../../widgets/custom_button.dart';
 
 class VisaOnboarding extends StatelessWidget {
   const VisaOnboarding({super.key});
@@ -11,17 +14,38 @@ class VisaOnboarding extends StatelessWidget {
         leading: Icon(Icons.arrow_back_ios_new_rounded),
       ),
       body: Container(
-        margin: EdgeInsets.symmetric(horizontal: AppMargin.m24, vertical: AppMargin.m24),
+        margin: EdgeInsets.symmetric(
+            horizontal: AppMargin.m24, vertical: AppMargin.m24),
         child: Column(
           children: [
-            Text("Let's Get Started with Your Visa Application",
-            style: Theme.of(context).textTheme.headlineLarge,
-             ),
-             SizedBox(height: 20,),
-             Image(image: AssetImage("assets/images/passports.png")),
-             SizedBox(height: 20,),
-             Text("We'll guide you through a simple process to get your visa approved.",
-             style: Theme.of(context).textTheme.headlineMedium,)
+            Text(
+              "Let's Get Started with Your Visa Application",
+              style: Theme.of(context).textTheme.headlineLarge,
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            Image(image: AssetImage("assets/images/passports.png")),
+            SizedBox(
+              height: 20,
+            ),
+            Text(
+              "We'll guide you through a simple process to get your visa approved.",
+              style: Theme.of(context).textTheme.headlineMedium,
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            CustomButton(
+              text: 'Start Application',
+              styleType: ButtonStyleType.solid,
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const MainApp()),
+                );
+              },
+            ),
           ],
         ),
       ),
