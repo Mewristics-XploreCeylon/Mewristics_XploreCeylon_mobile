@@ -1,36 +1,38 @@
 import 'package:flutter/material.dart';
 
+import '../constants/colors.dart';
 import 'R.dart';
 import 'font_manager.dart';
 
 ThemeData getApplicationTheme() {
   return ThemeData(
     useMaterial3: true,
-    primaryColor: R.colors.primaryColor,
+    primaryColor: AppColors.primaryColor,
 
     fontFamily: FontConstants.fontFamily,
 
     textTheme: TextTheme(
-      bodyMedium: TextStyle(color: R.colors.contentColor, fontSize: R.appSize.s20, fontWeight: FontWeightManager.medium),
-      headlineLarge: TextStyle(color: R.colors.primaryTextColor, fontSize: R.appSize.s24,fontWeight: FontWeightManager.semiBold),
-headlineMedium: TextStyle(color: R.colors.primaryTextColor, fontSize: R.appSize.s16,fontWeight: FontWeightManager.medium),
-      headlineSmall: TextStyle(color: R.colors.fieldTextColor, fontSize: R.appSize.s14,fontWeight: FontWeightManager.medium),
+      bodyMedium: TextStyle(color: AppColors.contentColor, fontSize: R.appSize.s20, fontWeight: FontWeightManager.medium),
+displaySmall: TextStyle(color: AppColors.fieldTextColor, fontSize: R.appSize.s14, fontWeight: FontWeightManager.regular),
+      headlineLarge: TextStyle(color: AppColors.primaryTextColor, fontSize: R.appSize.s24,fontWeight: FontWeightManager.semiBold),
+headlineMedium: TextStyle(color: AppColors.primaryTextColor, fontSize: R.appSize.s16,fontWeight: FontWeightManager.medium),
+      headlineSmall: TextStyle(color:AppColors.primaryTextColor, fontSize: R.appSize.s14,fontWeight: FontWeightManager.medium),
     ),
 
     progressIndicatorTheme:
-        ProgressIndicatorThemeData(color: R.colors.primaryColor),
-    drawerTheme: DrawerThemeData(backgroundColor: R.colors.primaryBGColor),
+        ProgressIndicatorThemeData(color: AppColors.primaryColor),
+    drawerTheme: DrawerThemeData(backgroundColor: AppColors.primaryBGColor),
     floatingActionButtonTheme: FloatingActionButtonThemeData(
-        backgroundColor: R.colors.primaryBGColor,
-        foregroundColor: R.colors.primaryTextColor),
+        backgroundColor:AppColors.primaryBGColor,
+        foregroundColor: AppColors.primaryTextColor),
 
     appBarTheme: AppBarTheme(
         centerTitle: false,
-        color: R.colors.primaryBGColor,
+        color: AppColors.primaryBGColor,
         titleTextStyle:
-            TextStyle(color: R.colors.primaryTextColor, fontSize: R.appSize.s24),
+            TextStyle(color: AppColors.primaryTextColor, fontSize: R.appSize.s24),
         elevation: R.appSize.s1,
-        iconTheme: IconThemeData(color: R.colors.primaryTextColor)
+        iconTheme: IconThemeData(color: AppColors.primaryTextColor)
 
        
         ),
