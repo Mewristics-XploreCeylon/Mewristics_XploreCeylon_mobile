@@ -59,6 +59,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(widget.label, style: Theme.of(context).textTheme.headlineSmall),
+          SizedBox(height: 10),
           TextFormField(
             //maxLines: widget.maxLines,
             textInputAction: widget.textInputAction,
@@ -117,6 +118,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
               ),
             ),
           ),
+          SizedBox(height: 20)
         ],
       ),
     );

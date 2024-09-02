@@ -36,22 +36,26 @@ class _VisaPersonalInformationState extends State<VisaPersonalInformation> {
               SizedBox(
                 height: 60,
               ),
-              Text("Upload an image of the last page your passport",
+              Text("Upload an image of the last page of your passport",
                   style: Theme.of(context).textTheme.headlineSmall),
+              SizedBox(height: 10),
               Padding(
                 padding: const EdgeInsets.symmetric(vertical: AppMargin.m4),
-                child: Container(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
-                      color: AppColors.primaryFeildColor,
-                    ),
-                    height: 100,
-                    child: Center(
-                        child: Icon(
-                      Icons.cloud_upload_outlined,
-                      color: AppColors.fieldTextColor,
-                    ))),
+                child: InkWell(
+                  child: Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+                        color: AppColors.primaryFeildColor,
+                      ),
+                      height: 100,
+                      child: Center(
+                          child: Icon(
+                        Icons.cloud_upload_outlined,
+                        color: AppColors.fieldTextColor,
+                      ))),
+                ),
               ),
+              SizedBox(height: 20),
               CustomTextField(hint: "Nationality", label: "Nationality"),
               CustomDropdown<Gender>(
                 dataList: Gender.values,
