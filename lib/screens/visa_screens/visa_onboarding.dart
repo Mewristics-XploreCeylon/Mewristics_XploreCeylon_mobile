@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:xploreceylon_mobile/constants/sizes.dart';
-import 'package:xploreceylon_mobile/main.dart';
 
 import '../../config/app_router.dart/routes.dart';
 import '../../widgets/custom_button.dart';
