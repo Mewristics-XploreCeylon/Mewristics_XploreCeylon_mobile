@@ -3,7 +3,6 @@ import 'package:go_router/go_router.dart';
 import 'package:xploreceylon_mobile/config/app_router.dart/routes.dart';
 import 'package:xploreceylon_mobile/screens/visa_screens/visa_onboarding.dart';
 import 'package:xploreceylon_mobile/screens/visa_screens/visa_personal_information.dart';
-
 import '../../screens/visa_screens/capture_biometrics.dart';
 
 class AppRouter {
