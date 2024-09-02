@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:go_router/go_router.dart';
 import 'package:local_auth/local_auth.dart';
 import 'package:xploreceylon_mobile/widgets/custom_button.dart';
+
+import '../../config/app_router.dart/routes.dart';
+import '../../constants/sizes.dart';
+import '../../widgets/page_header.dart';
 
 class ScanBiometrics extends StatefulWidget {
   const ScanBiometrics({super.key});
@@ -12,7 +17,7 @@ class ScanBiometrics extends StatefulWidget {
 
 class _ScanBiometricsState extends State<ScanBiometrics> {
   late final LocalAuthentication auth;
-  bool _supportState = false;
+  // bool _supportState = false;
 
   @override
   void initState() {
@@ -20,7 +25,7 @@ class _ScanBiometricsState extends State<ScanBiometrics> {
     auth = LocalAuthentication();
     auth.isDeviceSupported().then(
           (bool isSupported) => setState(() {
-            _supportState = isSupported;
+            // _supportState = isSupported;
           }),
         );
   }
@@ -35,15 +40,51 @@ class _ScanBiometricsState extends State<ScanBiometrics> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            if (_supportState)
-              const Text("This Device is Supported")
-            else
-              const Text("This Device is Not Supported"),
-            const Divider(height: 100),
+            // if (_supportState)
+            //   const Text("This Device is Supported")
+            // else
+            //   const Text("This Device is Not Supported"),
+            // const Divider(height: 100),
+            Container(
+              margin: const EdgeInsets.symmetric(
+                  horizontal: AppMargin.m24, vertical: AppMargin.m24),
+              child: const Column(
+                children: [
+                  PageHeader(
+                    title: "Capture Your Biometrics",
+                  ),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  Text(
+                    "To ensure the security of your application, we'll need to capture a facial scan. This process is quick and secure.",
+                    style: TextStyle(
+                      fontSize: 16,
+                    ),
+                  ),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  Image(image: AssetImage("assets/images/passports.png")),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  Text(
+                    "Please Authenticate in order to Proceed with the Visa Application Process.",
+                    style: TextStyle(
+                      fontSize: 16,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            const Spacer(),
             CustomButton(
-                text: "Authenticate to Proceed",
-                styleType: ButtonStyleType.solid,
-                onPressed: _authenticate)
+              text: "Authenticate to Proceed",
+              styleType: ButtonStyleType.solid,
+              onPressed: _authenticate,
+            ),
+            const SizedBox(height: 70),
           ],
         ),
       ),
@@ -62,16 +103,17 @@ class _ScanBiometricsState extends State<ScanBiometrics> {
       );
 
       print("Authenticated : $authenticated");
+
+      if (authenticated) context.go(Routes.visaPersonalInformation);
     } on PlatformException catch (e) {
       print(e);
     }
   }
+  // Future<void> _getAvailableBiometrics() async {
+  //   List<BiometricType> availableBiometrics =
+  //       await auth.getAvailableBiometrics();
+  //   print("List of Biometrics : $availableBiometrics");
 
-  Future<void> _getAvailableBiometrics() async {
-    List<BiometricType> availableBiometrics =
-        await auth.getAvailableBiometrics();
-    print("List of Biometrics : $availableBiometrics");
-
-    if (!mounted) return;
-  }
+  //   if (!mounted) return;
+  // }
 }
