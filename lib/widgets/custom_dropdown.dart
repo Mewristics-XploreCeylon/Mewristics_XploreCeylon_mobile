@@ -40,7 +40,7 @@ class _CustomDropdownState<T> extends State<CustomDropdown<T>> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(widget.label, style: Theme.of(context).textTheme.headlineSmall),
-            SizedBox(height: 10),
+          SizedBox(height: 10),
           DropdownButtonFormField<T>(
             value: _selectedItem,
             hint: Text(
@@ -80,7 +80,7 @@ class _CustomDropdownState<T> extends State<CustomDropdown<T>> {
               contentPadding: const EdgeInsets.symmetric(horizontal: 10),
             ),
           ),
-            SizedBox(height: 20),
+          SizedBox(height: 20),
         ],
       ),
     );

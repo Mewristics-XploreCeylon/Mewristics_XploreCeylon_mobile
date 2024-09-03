@@ -36,9 +36,8 @@ class _VisaPersonalInformationState extends State<VisaPersonalInformation> {
               SizedBox(
                 height: 60,
               ),
-              Text("Upload an image of the last page of your passport",
+              Text("Upload an image of the last page your passport",
                   style: Theme.of(context).textTheme.headlineSmall),
-              SizedBox(height: 10),
               Padding(
                 padding: const EdgeInsets.symmetric(vertical: AppMargin.m4),
                 child: InkWell(
