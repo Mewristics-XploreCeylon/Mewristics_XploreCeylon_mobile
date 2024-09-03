@@ -1,8 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:xploreceylon_mobile/constants/colors.dart';
 import 'package:xploreceylon_mobile/constants/sizes.dart';
+import 'package:xploreceylon_mobile/widgets/custom_appbar.dart';
+import 'package:xploreceylon_mobile/widgets/custom_button.dart';
 import 'package:xploreceylon_mobile/widgets/custom_dropdown.dart';
 import 'package:xploreceylon_mobile/widgets/custom_text_field.dart';
+
+import '../../config/app_router.dart/routes.dart';
+import '../../widgets/page_header.dart';
 
 enum Gender { male, female, other }
 
@@ -19,9 +25,7 @@ class _VisaPersonalInformationState extends State<VisaPersonalInformation> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        leading: Icon(Icons.arrow_back_ios_new_rounded),
-      ),
+      appBar: CustomAppbar(),
       body: SingleChildScrollView(
         child: Container(
           margin: EdgeInsets.symmetric(
@@ -29,17 +33,18 @@ class _VisaPersonalInformationState extends State<VisaPersonalInformation> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
-                "Personal Information",
-                style: Theme.of(context).textTheme.headlineLarge,
+              PageHeader(
+                title: "Personal Information",
               ),
               SizedBox(
                 height: 60,
               ),
-              Text("Upload an image of the last page your passport",
-                  style: Theme.of(context).textTheme.headlineSmall),
+              Text(
+                "Upload an image of the last page your passport",
+                style: Theme.of(context).textTheme.headlineMedium,
+              ),
               Padding(
-                padding: const EdgeInsets.symmetric(vertical: AppMargin.m4),
+                padding: const EdgeInsets.symmetric(vertical: AppMargin.m12),
                 child: InkWell(
                   child: Container(
                       decoration: BoxDecoration(
@@ -97,6 +102,27 @@ class _VisaPersonalInformationState extends State<VisaPersonalInformation> {
               CustomTextField(hint: "Profession", label: "Profession"),
               CustomTextField(
                   hint: "Address", label: "Address of the  employer/ business"),
+              SizedBox(
+                height: 50,
+              ),
+              Row(
+                children: [
+                  CustomButton(
+                      text: "Save for later",
+                      styleType: ButtonStyleType.solid,
+                      onPressed: () {}),
+                  Spacer(),
+                  CustomButton(
+                      text: "Next",
+                      styleType: ButtonStyleType.border,
+                      onPressed: () {
+                        GoRouter.of(context).pushNamed(Routes.presentPassportDetails);
+                      })
+                ],
+              ),
+              SizedBox(
+                height: 100,
+              )
             ],
           ),
         ),

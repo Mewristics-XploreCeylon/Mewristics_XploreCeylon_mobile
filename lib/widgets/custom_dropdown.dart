@@ -39,7 +39,7 @@ class _CustomDropdownState<T> extends State<CustomDropdown<T>> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(widget.label, style: Theme.of(context).textTheme.headlineSmall),
+          Text(widget.label, style: Theme.of(context).textTheme.headlineMedium),
           SizedBox(height: 10),
           DropdownButtonFormField<T>(
             value: _selectedItem,

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:xploreceylon_mobile/constants/sizes.dart';
+import 'package:xploreceylon_mobile/widgets/custom_appbar.dart';
 
 import '../../config/app_router.dart/routes.dart';
 import '../../widgets/custom_button.dart';
@@ -12,9 +13,7 @@ class VisaOnboarding extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        leading: Icon(Icons.arrow_back_ios_new_rounded),
-      ),
+      appBar: CustomAppbar(),
       body: Container(
         margin: const EdgeInsets.symmetric(
             horizontal: AppMargin.m24, vertical: AppMargin.m24),
@@ -35,22 +34,21 @@ class VisaOnboarding extends StatelessWidget {
               style: Theme.of(context).textTheme.headlineMedium,
             ),
             const SizedBox(
-              height: 50,
+              height: 60,
             ),
-            const Spacer(), // Pushes the content up
-            Align(
-              alignment: Alignment.bottomCenter,
-              child: FractionallySizedBox(
-                widthFactor: 0.9,
-                child: CustomButton(
-                  text: 'Start Application',
-                  styleType: ButtonStyleType.solid,
-                  onPressed: () {
-                    context.go(Routes.visaPersonalInformation);
-                  },
-                ),
+            // Pushes the content up
+            FractionallySizedBox(
+              widthFactor: 1,
+              child: CustomButton(
+                text: 'Start Application',
+                styleType: ButtonStyleType.solid,
+                onPressed: () {
+                  GoRouter.of(context)
+                      .pushNamed(Routes.biometricAuthentication);
+                },
               ),
             ),
+
             const SizedBox(height: 50),
           ],
         ),
