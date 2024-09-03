@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:xploreceylon_mobile/constants/colors.dart';
+
 class CustomTextField extends StatefulWidget {
   final String hint;
   final String label;
@@ -16,19 +17,18 @@ class CustomTextField extends StatefulWidget {
 
   const CustomTextField(
       {Key? key,
-        required this.hint,
-        required this.label,
-        this.iconButton,
-        this.obscureText = false,
-        this.inputType,
-        this.initialValue,
-        this.validator,
-        this.readOnly = false,
-        this.onSaved,
-        this.value,
-        this.textInputAction,
-        this.onFieldSubmitted
-      })
+      required this.hint,
+      required this.label,
+      this.iconButton,
+      this.obscureText = false,
+      this.inputType,
+      this.initialValue,
+      this.validator,
+      this.readOnly = false,
+      this.onSaved,
+      this.value,
+      this.textInputAction,
+      this.onFieldSubmitted})
       : super(key: key);
 
   @override
@@ -45,7 +45,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
     _obscureText = widget.obscureText;
 
     //--set a initial value--
-    if (widget.value != null){
+    if (widget.value != null) {
       _controller.value = TextEditingValue(text: widget.value!);
     }
   }
@@ -54,7 +54,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
   Widget build(BuildContext context) {
     return Container(
       margin:
-      const EdgeInsets.symmetric(vertical: 8), // Changed AppPadding.p8 to 8
+          const EdgeInsets.symmetric(vertical: 8), // Changed AppPadding.p8 to 8
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -66,7 +66,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
             onFieldSubmitted: widget.onFieldSubmitted,
             obscureText: _obscureText,
             cursorColor:
-            Colors.grey, // Changed AppColors.lowGrey to Colors.grey
+                Colors.grey, // Changed AppColors.lowGrey to Colors.grey
             cursorWidth: 1, // Changed AppSize.s1 to 1
             controller: _controller,
             keyboardType: widget.inputType,
@@ -98,7 +98,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
                     color: Colors
                         .grey), // Changed AppSize.s1 and AppColors.lowGrey to default values
                 borderRadius:
-                BorderRadius.circular(8), // Changed AppSize.s8 to 8
+                    BorderRadius.circular(8), // Changed AppSize.s8 to 8
               ),
               errorBorder: OutlineInputBorder(
                 borderSide: const BorderSide(
@@ -106,7 +106,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
                     color: Colors
                         .red), // Changed AppSize.s1 and AppColors.errorRed to default values
                 borderRadius:
-                BorderRadius.circular(8), // Changed AppSize.s8 to 8
+                    BorderRadius.circular(8), // Changed AppSize.s8 to 8
               ),
               focusedErrorBorder: OutlineInputBorder(
                 borderSide: const BorderSide(
@@ -130,4 +130,3 @@ class _CustomTextFieldState extends State<CustomTextField> {
     super.dispose();
   }
 }
-
