@@ -6,11 +6,14 @@ import 'package:xploreceylon_mobile/widgets/custom_appbar.dart';
 import 'package:xploreceylon_mobile/widgets/custom_button.dart';
 import 'package:xploreceylon_mobile/widgets/custom_dropdown.dart';
 import 'package:xploreceylon_mobile/widgets/custom_text_field.dart';
+import 'package:xploreceylon_mobile/widgets/custom_checkbutton.dart';
 
 import '../../config/app_router.dart/routes.dart';
 import '../../widgets/page_header.dart';
 
-enum Gender { male, female, other }
+enum Gender { male, female }
+
+enum MaritalStatus { single, married, widowed, separated, other }
 
 class VisaPersonalInformation extends StatefulWidget {
   const VisaPersonalInformation({super.key});
@@ -22,6 +25,7 @@ class VisaPersonalInformation extends StatefulWidget {
 
 class _VisaPersonalInformationState extends State<VisaPersonalInformation> {
   Gender? _selectedGender;
+  MaritalStatus? _selectedMaritalStatus;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -60,7 +64,8 @@ class _VisaPersonalInformationState extends State<VisaPersonalInformation> {
                 ),
               ),
               SizedBox(height: 20),
-              CustomTextField(hint: "Nationality", label: "Nationality"),
+              CustomTextField(hint: "Email Address", label: "Email Address"),
+              CustomTextField(hint: "Name in Full", label: "Name in Full"),
               CustomDropdown<Gender>(
                 dataList: Gender.values,
                 hint: 'Select your gender',
@@ -72,8 +77,6 @@ class _VisaPersonalInformationState extends State<VisaPersonalInformation> {
                       return 'Male';
                     case Gender.female:
                       return 'Female';
-                    case Gender.other:
-                      return 'Other';
                     default:
                       return '';
                   }
@@ -85,9 +88,10 @@ class _VisaPersonalInformationState extends State<VisaPersonalInformation> {
                 },
                 selectedItem: _selectedGender?.toString(),
               ),
+              CustomTextField(hint: "dd/mm/yyyy", label: "Date of Birth"),
               CustomTextField(
-                hint: "Place of birth",
-                label: "Place of birth",
+                hint: "City of birth",
+                label: "City of birth",
                 iconButton: IconButton(
                     icon: Icon(
                       Icons.search,
@@ -96,12 +100,62 @@ class _VisaPersonalInformationState extends State<VisaPersonalInformation> {
                     onPressed: () {}),
               ),
               CustomTextField(
-                  hint: "Current Address", label: "Current Address"),
-              CustomTextField(hint: "Mobile Number", label: "Mobile Number"),
-              CustomTextField(hint: "Email", label: "Email"),
-              CustomTextField(hint: "Profession", label: "Profession"),
+                hint: "Country of birth",
+                label: "Country of birth",
+                iconButton: IconButton(
+                    icon: Icon(
+                      Icons.search,
+                      color: AppColors.fieldTextColor,
+                    ),
+                    onPressed: () {}),
+              ),
+              CustomTextField(hint: "Nationality", label: "Nationality"),
+              CustomDropdown<MaritalStatus>(
+                dataList: MaritalStatus.values,
+                hint: 'Select your current Marital Status',
+                label: 'Marital Status',
+                displayText: (maritalstatus) {
+                  // Define how each enum value should be displayed
+                  switch (maritalstatus) {
+                    case MaritalStatus.single:
+                      return 'Single';
+                    case MaritalStatus.married:
+                      return 'Married';
+                    case MaritalStatus.widowed:
+                      return 'Widowed';
+                    case MaritalStatus.separated:
+                      return 'Separated';
+                    case MaritalStatus.other:
+                      return 'Other';
+                    default:
+                      return '';
+                  }
+                },
+                onChanged: (maritalstatus) {
+                  setState(() {
+                    _selectedMaritalStatus = maritalstatus;
+                  });
+                },
+                selectedItem: _selectedMaritalStatus?.toString(),
+              ),
               CustomTextField(
-                  hint: "Address", label: "Address of the  employer/ business"),
+                  hint: "dd/mm/yyyy", label: "Date of Naturalization"),
+              CustomTextField(
+                hint: "Place of Naturalization",
+                label: "Place of Naturalization",
+                iconButton: IconButton(
+                    icon: Icon(
+                      Icons.search,
+                      color: AppColors.fieldTextColor,
+                    ),
+                    onPressed: () {}),
+              ),
+              CustomTextField(
+                  hint: "Former Nationality", label: "Former Nationality"),
+
+                  CustomCheckButton(
+                  label: "Do not Apply",
+                  style: Theme.of(context).textTheme.headlineSmall),
               SizedBox(
                 height: 50,
               ),
