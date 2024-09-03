@@ -109,14 +109,15 @@ class _VisaPersonalInformationState extends State<VisaPersonalInformation> {
                 children: [
                   CustomButton(
                       text: "Save for later",
-                      styleType: ButtonStyleType.solid,
+                      styleType: ButtonStyleType.border,
                       onPressed: () {}),
                   Spacer(),
                   CustomButton(
                       text: "Next",
-                      styleType: ButtonStyleType.border,
+                      styleType: ButtonStyleType.solid,
                       onPressed: () {
-                        GoRouter.of(context).pushNamed(Routes.presentPassportDetails);
+                        GoRouter.of(context)
+                            .pushNamed(Routes.presentPassportDetails);
                       })
                 ],
               ),

@@ -10,8 +10,8 @@ import '../../widgets/custom_button.dart';
 import '../../widgets/custom_text_field.dart';
 import '../../widgets/page_header.dart';
 
-class VisaDetails extends StatelessWidget {
-  const VisaDetails({super.key});
+class VisitDetails extends StatelessWidget {
+  const VisitDetails({super.key});
 
   @override
   Widget build(BuildContext context) {

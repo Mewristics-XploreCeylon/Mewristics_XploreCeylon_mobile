@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:xploreceylon_mobile/widgets/custom_appbar.dart';
 import 'package:xploreceylon_mobile/widgets/custom_checkbutton.dart';
 
+import '../../config/app_router.dart/routes.dart';
 import '../../constants/colors.dart';
 import '../../constants/sizes.dart';
 import '../../widgets/custom_button.dart';
@@ -23,7 +25,7 @@ class EmergencyContacts extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               PageHeader(
-                title: "Details of the previous passport",
+                title: "Set up Emergency Contacts",
               ),
               SizedBox(
                 height: 60,
@@ -68,7 +70,9 @@ class EmergencyContacts extends StatelessWidget {
                   CustomButton(
                       text: "Next",
                       styleType: ButtonStyleType.solid,
-                      onPressed: () {})
+                      onPressed: () {
+                        GoRouter.of(context).pushNamed(Routes.visitDetails);
+                      })
                 ],
               ),
               SizedBox(

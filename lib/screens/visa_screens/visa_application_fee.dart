@@ -98,8 +98,7 @@ class _VisaApplicationFeeState extends State<VisaApplicationFee> {
                       text: "Next",
                       styleType: ButtonStyleType.solid,
                       onPressed: () {
-                        GoRouter.of(context)
-                            .pushNamed(Routes.biometricAuthentication);
+                        GoRouter.of(context).pushNamed(Routes.declaration);
                         // if (_selectedPaymentMethod.isNotEmpty) {
                         //   // Proceed with the selected payment method
                         // } else {

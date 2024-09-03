@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:xploreceylon_mobile/widgets/custom_appbar.dart';
 
+import '../../config/app_router.dart/routes.dart';
 import '../../constants/colors.dart';
 import '../../constants/sizes.dart';
 import '../../widgets/custom_button.dart';
@@ -45,7 +47,10 @@ class PreviousPassportDetails extends StatelessWidget {
                   CustomButton(
                       text: "Next",
                       styleType: ButtonStyleType.solid,
-                      onPressed: () {})
+                      onPressed: () {
+                        GoRouter.of(context)
+                            .pushNamed(Routes.emergencyContacts);
+                      })
                 ],
               ),
               SizedBox(

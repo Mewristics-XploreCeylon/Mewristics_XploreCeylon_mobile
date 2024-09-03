@@ -7,7 +7,7 @@ class Routes {
   static const presentPassportDetails = 'presentPassportDetails';
   static const previousPassportDetails = 'previousPassportDetails';
   static const emergencyContacts = 'emergencyContacts';
-  static const visaDetails = 'visaDetails';
+  static const visitDetails = 'visitDetails';
   static const visaApplicationFee = 'visaApplicationFee';
   static const declaration = 'declaration';
 

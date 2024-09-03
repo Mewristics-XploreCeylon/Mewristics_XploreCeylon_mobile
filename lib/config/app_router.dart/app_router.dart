@@ -7,7 +7,7 @@ import 'package:xploreceylon_mobile/screens/visa_screens/emergency_contacts.dart
 import 'package:xploreceylon_mobile/screens/visa_screens/past_passport_details.dart';
 import 'package:xploreceylon_mobile/screens/visa_screens/present_passport_details.dart';
 import 'package:xploreceylon_mobile/screens/visa_screens/visa_application_fee.dart';
-import 'package:xploreceylon_mobile/screens/visa_screens/visa_details.dart';
+import 'package:xploreceylon_mobile/screens/visa_screens/visit_details.dart';
 import 'package:xploreceylon_mobile/screens/visa_screens/visa_onboarding.dart';
 import 'package:xploreceylon_mobile/screens/visa_screens/visa_personal_information.dart';
 import '../../screens/visa_screens/capture_biometrics.dart';
@@ -25,7 +25,7 @@ class AppRouter {
           name: Routes.splash,
           path: '/',
           pageBuilder: (BuildContext context, GoRouterState state) {
-            return const MaterialPage(child: Declaration());
+            return const MaterialPage(child: VisaOnboarding());
           }),
 
       // Routes for screens
@@ -66,10 +66,10 @@ class AppRouter {
             return const MaterialPage(child: EmergencyContacts());
           }),
       GoRoute(
-          name: Routes.visaDetails,
-          path: "/visaDetails",
+          name: Routes.visitDetails,
+          path: "/visitDetails",
           pageBuilder: (BuildContext context, GoRouterState state) {
-            return const MaterialPage(child: VisaDetails());
+            return const MaterialPage(child: VisitDetails());
           }),
       GoRoute(
           name: Routes.visaApplicationFee,
@@ -77,12 +77,12 @@ class AppRouter {
           pageBuilder: (BuildContext context, GoRouterState state) {
             return const MaterialPage(child: VisaApplicationFee());
           }),
-             GoRoute(
+      GoRoute(
           name: Routes.declaration,
           path: "/declaration",
           pageBuilder: (BuildContext context, GoRouterState state) {
             return const MaterialPage(child: Declaration());
-          }),   
+          }),
       GoRoute(
           name: Routes.signIn,
           path: "/signIn",

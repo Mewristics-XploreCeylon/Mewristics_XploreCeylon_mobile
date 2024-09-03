@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:xploreceylon_mobile/constants/colors.dart';
 
 class CustomRadioButton<T> extends StatefulWidget {
   final List<T> options;
@@ -48,6 +49,7 @@ class _CustomRadioButtonState<T> extends State<CustomRadioButton<T>> {
                     widget.onChanged!(value);
                   }
                 },
+                activeColor: AppColors.primaryColor,
               ),
               Text(widget.labelBuilder(option),
                   style: Theme.of(context).textTheme.headlineMedium),

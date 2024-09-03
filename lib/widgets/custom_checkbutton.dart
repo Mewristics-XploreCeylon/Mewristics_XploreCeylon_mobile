@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:xploreceylon_mobile/constants/colors.dart';
 
 class CustomCheckButton extends StatefulWidget {
   final String label;
@@ -41,6 +42,7 @@ class _CustomCheckButtonState extends State<CustomCheckButton> {
               widget.onChanged!(value);
             }
           },
+          activeColor: AppColors.primaryColor,
         ),
         Text(widget.label, style: widget.style),
       ],
