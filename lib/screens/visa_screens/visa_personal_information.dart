@@ -47,7 +47,7 @@ class _VisaPersonalInformationState extends State<VisaPersonalInformation> {
                         borderRadius: BorderRadius.circular(10),
                         color: AppColors.primaryFeildColor,
                       ),
-                      height: 100,
+                      height: 150,
                       child: Center(
                           child: Icon(
                         Icons.cloud_upload_outlined,
