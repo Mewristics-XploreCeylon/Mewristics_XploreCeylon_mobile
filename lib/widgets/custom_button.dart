@@ -16,7 +16,7 @@ class CustomButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FractionallySizedBox(
-      widthFactor: 0.8,
+      // widthFactor: 0.8,
       child: ElevatedButton(
         style: ButtonStyle(
           backgroundColor: WidgetStateProperty.all(
@@ -39,7 +39,7 @@ class CustomButton extends StatelessWidget {
               borderRadius: BorderRadius.circular(10.0),
             ),
           ),
-          minimumSize: WidgetStateProperty.all(const Size(150, 50)),
+          minimumSize: WidgetStateProperty.all(const Size(160, 50)),
         ),
         onPressed: onPressed,
         child: Text(

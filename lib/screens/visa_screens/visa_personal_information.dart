@@ -1,10 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:xploreceylon_mobile/constants/colors.dart';
 import 'package:xploreceylon_mobile/constants/sizes.dart';
+import 'package:xploreceylon_mobile/widgets/custom_appbar.dart';
+import 'package:xploreceylon_mobile/widgets/custom_button.dart';
 import 'package:xploreceylon_mobile/widgets/custom_dropdown.dart';
 import 'package:xploreceylon_mobile/widgets/custom_text_field.dart';
+import 'package:xploreceylon_mobile/widgets/custom_checkbutton.dart';
 
-enum Gender { male, female, other }
+import '../../config/app_router.dart/routes.dart';
+import '../../widgets/page_header.dart';
+
+enum Gender { male, female }
+
+enum MaritalStatus { single, married, widowed, separated, other }
 
 class VisaPersonalInformation extends StatefulWidget {
   const VisaPersonalInformation({super.key});
@@ -16,12 +25,11 @@ class VisaPersonalInformation extends StatefulWidget {
 
 class _VisaPersonalInformationState extends State<VisaPersonalInformation> {
   Gender? _selectedGender;
+  MaritalStatus? _selectedMaritalStatus;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        leading: Icon(Icons.arrow_back_ios_new_rounded),
-      ),
+      appBar: CustomAppbar(),
       body: SingleChildScrollView(
         child: Container(
           margin: EdgeInsets.symmetric(
@@ -29,30 +37,35 @@ class _VisaPersonalInformationState extends State<VisaPersonalInformation> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
-                "Personal Information",
-                style: Theme.of(context).textTheme.headlineLarge,
+              PageHeader(
+                title: "Personal Information",
               ),
               SizedBox(
                 height: 60,
               ),
-              Text("Upload an image of the last page your passport",
-                  style: Theme.of(context).textTheme.headlineSmall),
-              Padding(
-                padding: const EdgeInsets.symmetric(vertical: AppMargin.m4),
-                child: Container(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
-                      color: AppColors.primaryFeildColor,
-                    ),
-                    height: 100,
-                    child: Center(
-                        child: Icon(
-                      Icons.cloud_upload_outlined,
-                      color: AppColors.fieldTextColor,
-                    ))),
+              Text(
+                "Upload an image of the last page your passport",
+                style: Theme.of(context).textTheme.headlineMedium,
               ),
-              CustomTextField(hint: "Nationality", label: "Nationality"),
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: AppMargin.m12),
+                child: InkWell(
+                  child: Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+                        color: AppColors.primaryFeildColor,
+                      ),
+                      height: 150,
+                      child: Center(
+                          child: Icon(
+                        Icons.cloud_upload_outlined,
+                        color: AppColors.fieldTextColor,
+                      ))),
+                ),
+              ),
+              SizedBox(height: 20),
+              CustomTextField(hint: "Email Address", label: "Email Address"),
+              CustomTextField(hint: "Name in Full", label: "Name in Full"),
               CustomDropdown<Gender>(
                 dataList: Gender.values,
                 hint: 'Select your gender',
@@ -64,8 +77,6 @@ class _VisaPersonalInformationState extends State<VisaPersonalInformation> {
                       return 'Male';
                     case Gender.female:
                       return 'Female';
-                    case Gender.other:
-                      return 'Other';
                     default:
                       return '';
                   }
@@ -77,9 +88,10 @@ class _VisaPersonalInformationState extends State<VisaPersonalInformation> {
                 },
                 selectedItem: _selectedGender?.toString(),
               ),
+              CustomTextField(hint: "dd/mm/yyyy", label: "Date of Birth"),
               CustomTextField(
-                hint: "Place of birth",
-                label: "Place of birth",
+                hint: "City of birth",
+                label: "City of birth",
                 iconButton: IconButton(
                     icon: Icon(
                       Icons.search,
@@ -88,12 +100,84 @@ class _VisaPersonalInformationState extends State<VisaPersonalInformation> {
                     onPressed: () {}),
               ),
               CustomTextField(
-                  hint: "Current Address", label: "Current Address"),
-              CustomTextField(hint: "Mobile Number", label: "Mobile Number"),
-              CustomTextField(hint: "Email", label: "Email"),
-              CustomTextField(hint: "Profession", label: "Profession"),
+                hint: "Country of birth",
+                label: "Country of birth",
+                iconButton: IconButton(
+                    icon: Icon(
+                      Icons.search,
+                      color: AppColors.fieldTextColor,
+                    ),
+                    onPressed: () {}),
+              ),
+              CustomTextField(hint: "Nationality", label: "Nationality"),
+              CustomDropdown<MaritalStatus>(
+                dataList: MaritalStatus.values,
+                hint: 'Select your current Marital Status',
+                label: 'Marital Status',
+                displayText: (maritalstatus) {
+                  // Define how each enum value should be displayed
+                  switch (maritalstatus) {
+                    case MaritalStatus.single:
+                      return 'Single';
+                    case MaritalStatus.married:
+                      return 'Married';
+                    case MaritalStatus.widowed:
+                      return 'Widowed';
+                    case MaritalStatus.separated:
+                      return 'Separated';
+                    case MaritalStatus.other:
+                      return 'Other';
+                    default:
+                      return '';
+                  }
+                },
+                onChanged: (maritalstatus) {
+                  setState(() {
+                    _selectedMaritalStatus = maritalstatus;
+                  });
+                },
+                selectedItem: _selectedMaritalStatus?.toString(),
+              ),
               CustomTextField(
-                  hint: "Address", label: "Address of the  employer/ business"),
+                  hint: "dd/mm/yyyy", label: "Date of Naturalization"),
+              CustomTextField(
+                hint: "Place of Naturalization",
+                label: "Place of Naturalization",
+                iconButton: IconButton(
+                    icon: Icon(
+                      Icons.search,
+                      color: AppColors.fieldTextColor,
+                    ),
+                    onPressed: () {}),
+              ),
+              CustomTextField(
+                  hint: "Former Nationality", label: "Former Nationality"),
+
+                  CustomCheckButton(
+                  label: "Do not Apply",
+                  style: Theme.of(context).textTheme.headlineSmall),
+              SizedBox(
+                height: 50,
+              ),
+              Row(
+                children: [
+                  CustomButton(
+                      text: "Save for later",
+                      styleType: ButtonStyleType.border,
+                      onPressed: () {}),
+                  Spacer(),
+                  CustomButton(
+                      text: "Next",
+                      styleType: ButtonStyleType.solid,
+                      onPressed: () {
+                        GoRouter.of(context)
+                            .pushNamed(Routes.presentPassportDetails);
+                      })
+                ],
+              ),
+              SizedBox(
+                height: 100,
+              )
             ],
           ),
         ),
