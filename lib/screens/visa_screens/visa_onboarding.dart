@@ -36,20 +36,16 @@ class VisaOnboarding extends StatelessWidget {
             const SizedBox(
               height: 60,
             ),
-            const Spacer(), // Pushes the content up
-            Align(
-              alignment: Alignment.bottomCenter,
-              child: FractionallySizedBox(
-                widthFactor: 0.9,
-                child: CustomButton(
-                  text: 'Start Application',
-                  styleType: ButtonStyleType.solid,
-
-                  // have to change to home page
-                  onPressed: () {
-                    context.go(Routes.visaPersonalInformation);
-                  },
-                ),
+            // Pushes the content up
+            FractionallySizedBox(
+              widthFactor: 1,
+              child: CustomButton(
+                text: 'Start Application',
+                styleType: ButtonStyleType.solid,
+                onPressed: () {
+                  GoRouter.of(context)
+                      .pushNamed(Routes.biometricAuthentication);
+                },
               ),
             ),
 
