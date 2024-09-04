@@ -26,7 +26,7 @@ class AppRouter {
           name: Routes.splash,
           path: '/',
           pageBuilder: (BuildContext context, GoRouterState state) {
-            return const MaterialPage(child: SignUp());
+            return const MaterialPage(child: VisaOnboarding());
           }),
 
       // Routes for screens
