@@ -3,4 +3,5 @@ class Routes {
   static const visaOnboarding = '/visaOnboarding';
   static const visaPersonalInformation = '/visaPersonalInformation';
   static const biometricAuthentication = '/biometricAuthentication';
+  static const onboarding = '/onboarding';
 }

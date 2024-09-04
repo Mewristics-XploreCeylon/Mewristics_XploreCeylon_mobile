@@ -45,6 +45,8 @@ class VisaOnboarding extends StatelessWidget {
                 child: CustomButton(
                   text: 'Start Application',
                   styleType: ButtonStyleType.solid,
+
+                  // have to change to home page
                   onPressed: () {
                     context.go(Routes.visaPersonalInformation);
                   },

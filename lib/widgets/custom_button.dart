@@ -5,52 +5,65 @@ class CustomButton extends StatelessWidget {
   final String text;
   final ButtonStyleType styleType;
   final VoidCallback onPressed;
+  final bool useSizedBox; // New optional attribute
 
   const CustomButton({
     super.key,
     required this.text,
     required this.styleType,
     required this.onPressed,
+    this.useSizedBox =
+        false, // Default to false, meaning FractionallySizedBox is used
   });
 
   @override
   Widget build(BuildContext context) {
-    return FractionallySizedBox(
-      widthFactor: 0.8,
-      child: ElevatedButton(
-        style: ButtonStyle(
-          backgroundColor: WidgetStateProperty.all(
-            styleType == ButtonStyleType.solid
-                ? AppColors.primaryColor
-                : Colors.white,
-          ),
-          side: WidgetStateProperty.all(
-            styleType == ButtonStyleType.border
-                ? BorderSide(color: AppColors.primaryColor, width: 2)
-                : BorderSide.none,
-          ),
-          foregroundColor: WidgetStateProperty.all(
-            styleType == ButtonStyleType.border
-                ? AppColors.primaryColor
-                : Colors.white,
-          ),
-          shape: WidgetStateProperty.all(
-            RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(10.0),
-            ),
-          ),
-          minimumSize: WidgetStateProperty.all(const Size(150, 50)),
+    final buttonChild = ElevatedButton(
+      style: ButtonStyle(
+        backgroundColor: WidgetStatePropertyAll(
+          styleType == ButtonStyleType.solid
+              ? AppColors.primaryColor
+              : Colors.white,
         ),
-        onPressed: onPressed,
-        child: Text(
-          text,
-          style: const TextStyle(
-            fontWeight: FontWeight.w600,
-            fontSize: 16,
+        side: WidgetStatePropertyAll(
+          styleType == ButtonStyleType.border
+              ? BorderSide(color: AppColors.primaryColor, width: 2)
+              : BorderSide.none,
+        ),
+        foregroundColor: WidgetStatePropertyAll(
+          styleType == ButtonStyleType.border
+              ? AppColors.primaryColor
+              : Colors.white,
+        ),
+        shape: WidgetStatePropertyAll(
+          RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(10.0),
           ),
+        ),
+        minimumSize: WidgetStatePropertyAll(const Size(150, 50)),
+      ),
+      onPressed: onPressed,
+      child: Text(
+        text,
+        style: const TextStyle(
+          fontWeight: FontWeight.w600,
+          fontSize: 16,
         ),
       ),
     );
+
+    if (useSizedBox) {
+      return SizedBox(
+        width: MediaQuery.of(context).size.width * 0.8,
+        height: MediaQuery.of(context).size.width * 0.13,
+        child: buttonChild,
+      );
+    } else {
+      return FractionallySizedBox(
+        widthFactor: 0.8,
+        child: buttonChild,
+      );
+    }
   }
 }
 
