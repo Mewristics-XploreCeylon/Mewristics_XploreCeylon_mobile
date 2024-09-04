@@ -107,7 +107,9 @@ class _ScanBiometricsState extends State<ScanBiometrics> {
 
       print("Authenticated : $authenticated");
 
-      if (authenticated) context.go(Routes.visaPersonalInformation);
+      if (authenticated)
+        GoRouter.of(context).pushNamed(Routes.visaPersonalInformation);
+      ;
     } on PlatformException catch (e) {
       print(e);
     }
