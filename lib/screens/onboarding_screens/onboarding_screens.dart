@@ -52,6 +52,7 @@ class _OnboardingState extends State<Onboarding> {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
+                        const SizedBox(height: 200),
                         Text(
                           controller.items[index].title,
                           style: const TextStyle(
