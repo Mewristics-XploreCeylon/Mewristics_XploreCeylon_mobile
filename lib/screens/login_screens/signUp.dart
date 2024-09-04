@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:xploreceylon_mobile/constants/colors.dart';
 import 'package:xploreceylon_mobile/widgets/custom_button.dart';
 import 'package:xploreceylon_mobile/widgets/custom_text_field.dart';
 
+import '../../config/app_router.dart/routes.dart';
 import '../../constants/sizes.dart';
 
 class SignUp extends StatelessWidget {
@@ -51,6 +53,7 @@ class SignUp extends StatelessWidget {
                 styleType: ButtonStyleType.solid,
                 onPressed: () {
                   // Handle sign in
+                  GoRouter.of(context).pushNamed(Routes.signUpNext);
                 },
               ),
             ),
@@ -102,14 +105,14 @@ class SignUp extends StatelessWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Text("Don't have an account yet? ",
+                      Text("Already have an account? ",
                           style: Theme.of(context).textTheme.headlineMedium),
                       GestureDetector(
                         onTap: () {
-                          // Navigate to the signup screen
+                          GoRouter.of(context).pushNamed(Routes.signIn);
                         },
                         child: Text(
-                          "Sign Up",
+                          "Sign In",
                           style: TextStyle(
                             fontSize: 16,
                             color: AppColors.primaryColor,

@@ -14,4 +14,5 @@ class Routes {
 
   static const signIn = "signIn";
   static const signUp = "signUp";
+  static const signUpNext = "signUpNext";
 }

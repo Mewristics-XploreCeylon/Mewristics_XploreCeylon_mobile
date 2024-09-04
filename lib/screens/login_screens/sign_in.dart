@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:xploreceylon_mobile/constants/colors.dart';
 import 'package:xploreceylon_mobile/widgets/custom_button.dart';
 import 'package:xploreceylon_mobile/widgets/custom_text_field.dart';
 
+import '../../config/app_router.dart/routes.dart';
 import '../../constants/sizes.dart';
 
 class SignIn extends StatelessWidget {
@@ -75,6 +77,7 @@ class SignIn extends StatelessWidget {
                 styleType: ButtonStyleType.solid,
                 onPressed: () {
                   // Handle sign in
+                  GoRouter.of(context).pushNamed(Routes.visaOnboarding);
                 },
               ),
             ),
@@ -130,6 +133,7 @@ class SignIn extends StatelessWidget {
                           style: Theme.of(context).textTheme.headlineMedium),
                       GestureDetector(
                         onTap: () {
+                          GoRouter.of(context).pushNamed(Routes.signUp);
                           // Navigate to the signup screen
                         },
                         child: Text(

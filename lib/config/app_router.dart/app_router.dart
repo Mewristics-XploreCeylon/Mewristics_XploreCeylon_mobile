@@ -12,6 +12,7 @@ import 'package:xploreceylon_mobile/screens/visa_screens/visit_details.dart';
 import 'package:xploreceylon_mobile/screens/visa_screens/visa_onboarding.dart';
 import 'package:xploreceylon_mobile/screens/visa_screens/visa_personal_information.dart';
 import '../../screens/login_screens/signUp.dart';
+import '../../screens/login_screens/signUpNext.dart';
 import '../../screens/visa_screens/capture_biometrics.dart';
 import '../../screens/visa_screens/declaration.dart';
 
@@ -27,7 +28,8 @@ class AppRouter {
           name: Routes.splash,
           path: '/',
           pageBuilder: (BuildContext context, GoRouterState state) {
-            return const MaterialPage(child: Onboarding());
+            // return const MaterialPage(child: VisaOnboarding());
+            return const MaterialPage(child: SignUpNext());
           }),
 
       // Routes for screens
@@ -96,6 +98,12 @@ class AppRouter {
           path: "/signUp",
           pageBuilder: (BuildContext context, GoRouterState state) {
             return const MaterialPage(child: SignUp());
+          }),
+      GoRoute(
+          name: Routes.signUpNext,
+          path: "/signUpNext",
+          pageBuilder: (BuildContext context, GoRouterState state) {
+            return const MaterialPage(child: SignUpNext());
           }),
       GoRoute(
           name: Routes.onboarding,
