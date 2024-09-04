@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:xploreceylon_mobile/config/app_router.dart/routes.dart';
-import 'package:xploreceylon_mobile/screens/onboarding_screens/onboarding_screens.dart';
 import 'package:xploreceylon_mobile/main.dart';
 import 'package:xploreceylon_mobile/screens/login_screens/sign_in.dart';
 import 'package:xploreceylon_mobile/screens/visa_screens/emergency_contacts.dart';
@@ -26,7 +25,7 @@ class AppRouter {
           name: Routes.splash,
           path: '/',
           pageBuilder: (BuildContext context, GoRouterState state) {
-            return const MaterialPage(child: Onboarding());
+            return const MaterialPage(child: VisaOnboarding());
           }),
 
       // Routes for screens
@@ -90,12 +89,6 @@ class AppRouter {
           pageBuilder: (BuildContext context, GoRouterState state) {
             return const MaterialPage(child: SignIn());
           }),
-      GoRoute(
-          name: Routes.onboarding,
-          path: '/onboarding',
-          pageBuilder: (BuildContext context, GoRouterState state) {
-            return const MaterialPage(child: Onboarding());
-          })
     ],
   );
 }
