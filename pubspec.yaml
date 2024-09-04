@@ -20,6 +20,7 @@ dependencies:
   path_provider: ^2.1.4
 
   local_auth: ^2.3.0
+  flutter_native_splash: ^2.4.1
 
 dev_dependencies:
   flutter_test:
@@ -48,3 +49,17 @@ flutter:
 
   assets:
     - assets/images/
+    - assets/
+
+flutter_native_splash:
+  android: true
+  ios: true
+
+  background_image: "assets/bg_img.png"
+  image: "assets/logo.png"
+  branding: "assets/banner_img.png"
+
+  android_12:
+    color: "#ffffff"
+    image: "assets/android_logo_no_bg.png"
+    branding: "assets/banner_img.png"
