@@ -5,9 +5,9 @@ import 'package:xploreceylon_mobile/widgets/custom_appbar.dart';
 
 import '../../constants/sizes.dart';
 import '../../widgets/page_header.dart';
-import 'profile_tabs/notifications.dart';
+// import 'profile_tabs/notifications.dart';
 // import 'profile_tabs/visa_status.dart';
-import 'profile_tabs/wallet.dart';
+// import 'profile_tabs/wallet.dart';
 
 class Profile extends StatefulWidget {
   const Profile({super.key});
@@ -75,8 +75,8 @@ class _ProfileState extends State<Profile> with SingleTickerProviderStateMixin {
                   controller: _tabController,
                   children: const [
                     // VisaStatusTab(),
-                    NotificationsTab(),
-                    WalletTab(),
+                    // NotificationsTab(),
+                    // WalletTab(),
                   ],
                 ),
               ),
