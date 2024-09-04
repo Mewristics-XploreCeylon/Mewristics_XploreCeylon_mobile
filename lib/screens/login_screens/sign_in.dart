@@ -27,8 +27,8 @@ class SignIn extends StatelessWidget {
             CustomTextField(
                 hint: "Password",
                 label: "Password",
-                iconButton:
-                    IconButton(onPressed: () {}, icon: Icon(Icons.remove_red_eye))),
+                iconButton: IconButton(
+                    onPressed: () {}, icon: Icon(Icons.remove_red_eye))),
           ],
         ),
       ),
