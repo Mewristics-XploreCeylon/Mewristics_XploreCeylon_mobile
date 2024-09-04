@@ -5,8 +5,8 @@ import 'package:xploreceylon_mobile/widgets/custom_text_field.dart';
 
 import '../../constants/sizes.dart';
 
-class SignIn extends StatelessWidget {
-  const SignIn({super.key});
+class SignUp extends StatelessWidget {
+  const SignUp({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -19,8 +19,15 @@ class SignIn extends StatelessWidget {
           children: [
             SizedBox(height: 100),
             Text(
-              "Welcome back!",
+              "Join the Adventure!",
               style: Theme.of(context).textTheme.headlineLarge,
+            ),
+            SizedBox(
+              height: 30,
+            ),
+            Text(
+              "Create your account to start exploring Sri Lanka your way.",
+              style: Theme.of(context).textTheme.headlineMedium,
             ),
             SizedBox(
               height: 30,
@@ -34,44 +41,13 @@ class SignIn extends StatelessWidget {
                 icon: Icon(Icons.remove_red_eye),
               ),
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Row(
-                  children: [
-                    Checkbox(
-                      value:
-                          false, // Add the appropriate state management for this
-                      onChanged: (value) {
-                        // Handle remember me logic
-                      },
-                    ),
-                    Text("Remember Me",
-                        style: Theme.of(context).textTheme.headlineMedium),
-                  ],
-                ),
-                GestureDetector(
-                  onTap: () {
-                    // Navigate to Forgot Password Screen
-                  },
-                  child: Text(
-                    "Forgot Password?",
-                    style: TextStyle(
-                      fontSize: 16,
-                      color: AppColors.primaryColor,
-                      decoration: TextDecoration.underline,
-                    ),
-                  ),
-                ),
-              ],
-            ),
             SizedBox(
               height: 50,
             ),
             FractionallySizedBox(
               widthFactor: 1,
               child: CustomButton(
-                text: "Sign In",
+                text: "Continue",
                 styleType: ButtonStyleType.solid,
                 onPressed: () {
                   // Handle sign in

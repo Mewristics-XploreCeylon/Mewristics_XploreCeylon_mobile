@@ -12,4 +12,5 @@ class Routes {
   static const declaration = 'declaration';
 
   static const signIn = "signIn";
+  static const signUp = "signUp";
 }

@@ -10,6 +10,7 @@ import 'package:xploreceylon_mobile/screens/visa_screens/visa_application_fee.da
 import 'package:xploreceylon_mobile/screens/visa_screens/visit_details.dart';
 import 'package:xploreceylon_mobile/screens/visa_screens/visa_onboarding.dart';
 import 'package:xploreceylon_mobile/screens/visa_screens/visa_personal_information.dart';
+import '../../screens/login_screens/signUp.dart';
 import '../../screens/visa_screens/capture_biometrics.dart';
 import '../../screens/visa_screens/declaration.dart';
 
@@ -25,7 +26,7 @@ class AppRouter {
           name: Routes.splash,
           path: '/',
           pageBuilder: (BuildContext context, GoRouterState state) {
-            return const MaterialPage(child: VisaOnboarding());
+            return const MaterialPage(child: SignUp());
           }),
 
       // Routes for screens
@@ -88,6 +89,12 @@ class AppRouter {
           path: "/signIn",
           pageBuilder: (BuildContext context, GoRouterState state) {
             return const MaterialPage(child: SignIn());
+          }),
+      GoRoute(
+          name: Routes.signUp,
+          path: "/signUp",
+          pageBuilder: (BuildContext context, GoRouterState state) {
+            return const MaterialPage(child: SignUp());
           }),
     ],
   );
