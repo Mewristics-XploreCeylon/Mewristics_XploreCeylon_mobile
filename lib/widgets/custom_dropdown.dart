@@ -39,8 +39,8 @@ class _CustomDropdownState<T> extends State<CustomDropdown<T>> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(widget.label, style: Theme.of(context).textTheme.headlineSmall),
-          SizedBox(height: AppMargin.m4),
+          Text(widget.label, style: Theme.of(context).textTheme.headlineMedium),
+          SizedBox(height: 10),
           DropdownButtonFormField<T>(
             value: _selectedItem,
             hint: Text(
@@ -80,6 +80,7 @@ class _CustomDropdownState<T> extends State<CustomDropdown<T>> {
               contentPadding: const EdgeInsets.symmetric(horizontal: 10),
             ),
           ),
+          SizedBox(height: 20),
         ],
       ),
     );

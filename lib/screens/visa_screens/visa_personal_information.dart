@@ -1,8 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:xploreceylon_mobile/constants/colors.dart';
 import 'package:xploreceylon_mobile/constants/sizes.dart';
+import 'package:xploreceylon_mobile/widgets/custom_appbar.dart';
+import 'package:xploreceylon_mobile/widgets/custom_button.dart';
 import 'package:xploreceylon_mobile/widgets/custom_dropdown.dart';
 import 'package:xploreceylon_mobile/widgets/custom_text_field.dart';
+
+import '../../config/app_router.dart/routes.dart';
+import '../../widgets/page_header.dart';
 
 enum Gender { male, female, other }
 
@@ -19,9 +25,7 @@ class _VisaPersonalInformationState extends State<VisaPersonalInformation> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        leading: Icon(Icons.arrow_back_ios_new_rounded),
-      ),
+      appBar: CustomAppbar(),
       body: SingleChildScrollView(
         child: Container(
           margin: EdgeInsets.symmetric(
@@ -29,29 +33,33 @@ class _VisaPersonalInformationState extends State<VisaPersonalInformation> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
-                "Personal Information",
-                style: Theme.of(context).textTheme.headlineLarge,
+              PageHeader(
+                title: "Personal Information",
               ),
               SizedBox(
                 height: 60,
               ),
-              Text("Upload an image of the last page your passport",
-                  style: Theme.of(context).textTheme.headlineSmall),
-              Padding(
-                padding: const EdgeInsets.symmetric(vertical: AppMargin.m4),
-                child: Container(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
-                      color: AppColors.primaryFeildColor,
-                    ),
-                    height: 100,
-                    child: Center(
-                        child: Icon(
-                      Icons.cloud_upload_outlined,
-                      color: AppColors.fieldTextColor,
-                    ))),
+              Text(
+                "Upload an image of the last page your passport",
+                style: Theme.of(context).textTheme.headlineMedium,
               ),
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: AppMargin.m12),
+                child: InkWell(
+                  child: Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+                        color: AppColors.primaryFeildColor,
+                      ),
+                      height: 150,
+                      child: Center(
+                          child: Icon(
+                        Icons.cloud_upload_outlined,
+                        color: AppColors.fieldTextColor,
+                      ))),
+                ),
+              ),
+              SizedBox(height: 20),
               CustomTextField(hint: "Nationality", label: "Nationality"),
               CustomDropdown<Gender>(
                 dataList: Gender.values,
@@ -94,6 +102,28 @@ class _VisaPersonalInformationState extends State<VisaPersonalInformation> {
               CustomTextField(hint: "Profession", label: "Profession"),
               CustomTextField(
                   hint: "Address", label: "Address of the  employer/ business"),
+              SizedBox(
+                height: 50,
+              ),
+              Row(
+                children: [
+                  CustomButton(
+                      text: "Save for later",
+                      styleType: ButtonStyleType.border,
+                      onPressed: () {}),
+                  Spacer(),
+                  CustomButton(
+                      text: "Next",
+                      styleType: ButtonStyleType.solid,
+                      onPressed: () {
+                        GoRouter.of(context)
+                            .pushNamed(Routes.presentPassportDetails);
+                      })
+                ],
+              ),
+              SizedBox(
+                height: 100,
+              )
             ],
           ),
         ),
