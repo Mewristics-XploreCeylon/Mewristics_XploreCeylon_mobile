@@ -1,3 +1,5 @@
+import 'package:xploreceylon_mobile/screens/profile_screens/profile.dart';
+
 class Routes {
   static const splash = '/';
 
@@ -10,6 +12,8 @@ class Routes {
   static const visitDetails = 'visitDetails';
   static const visaApplicationFee = 'visaApplicationFee';
   static const declaration = 'declaration';
+
+  static const profile = 'profile';
 
   static const signIn = "signIn";
 }
