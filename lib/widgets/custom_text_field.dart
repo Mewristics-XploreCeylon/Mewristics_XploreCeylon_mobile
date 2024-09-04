@@ -58,7 +58,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(widget.label, style: Theme.of(context).textTheme.headlineSmall),
+          Text(widget.label, style: Theme.of(context).textTheme.headlineMedium),
           SizedBox(height: 10),
           TextFormField(
             //maxLines: widget.maxLines,
@@ -88,9 +88,10 @@ class _CustomTextFieldState extends State<CustomTextField> {
               enabledBorder: OutlineInputBorder(
                 borderSide: const BorderSide(
                     width: 1,
-                    color: AppColors.primaryFeildColor), // Changed AppSize.s1 and AppColors.fielBorder to default values
+                    color: AppColors
+                        .primaryFeildColor), // Changed AppSize.s1 and AppColors.fielBorder to default values
                 borderRadius:
-                BorderRadius.circular(8), // Changed AppSize.s8 to 8
+                    BorderRadius.circular(8), // Changed AppSize.s8 to 8
               ),
               focusedBorder: OutlineInputBorder(
                 borderSide: const BorderSide(
@@ -114,11 +115,11 @@ class _CustomTextFieldState extends State<CustomTextField> {
                     color: Colors
                         .red), // Changed AppSize.s1 and AppColors.errorRed to default values
                 borderRadius:
-                BorderRadius.circular(8), // Changed AppSize.s8 to 8
+                    BorderRadius.circular(8), // Changed AppSize.s8 to 8
               ),
             ),
           ),
-          SizedBox(height: 20)
+          SizedBox(height: 10)
         ],
       ),
     );

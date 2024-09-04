@@ -20,7 +20,7 @@ class CustomButton extends StatelessWidget {
   Widget build(BuildContext context) {
     final buttonChild = ElevatedButton(
       style: ButtonStyle(
-        backgroundColor: WidgetStatePropertyAll(
+        backgroundColor: WidgetStateProperty.all(
           styleType == ButtonStyleType.solid
               ? AppColors.primaryColor
               : Colors.white,
@@ -30,17 +30,17 @@ class CustomButton extends StatelessWidget {
               ? BorderSide(color: AppColors.primaryColor, width: 2)
               : BorderSide.none,
         ),
-        foregroundColor: WidgetStatePropertyAll(
+        foregroundColor: WidgetStateProperty.all(
           styleType == ButtonStyleType.border
               ? AppColors.primaryColor
               : Colors.white,
         ),
-        shape: WidgetStatePropertyAll(
+        shape: WidgetStateProperty.all(
           RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(10.0),
           ),
         ),
-        minimumSize: WidgetStatePropertyAll(const Size(150, 50)),
+        minimumSize: WidgetStateProperty.all(const Size(150, 50)),
       ),
       onPressed: onPressed,
       child: Text(
