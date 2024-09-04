@@ -110,6 +110,7 @@ class _OnboardingState extends State<Onboarding> {
                           context.go(Routes.visaOnboarding);
                         },
                         useSizedBox: true,
+                        isPrimaryColor: false,
                       )
                     : CustomButton(
                         text: "Next",
@@ -119,6 +120,7 @@ class _OnboardingState extends State<Onboarding> {
                           curve: Curves.easeInOut,
                         ),
                         useSizedBox: true,
+                        isPrimaryColor: false,
                       ),
               ],
             ),

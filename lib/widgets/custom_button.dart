@@ -5,15 +5,16 @@ class CustomButton extends StatelessWidget {
   final String text;
   final ButtonStyleType styleType;
   final VoidCallback onPressed;
-  final bool useSizedBox; // New optional attribute
+  final bool useSizedBox;
+  final bool isPrimaryColor;
 
   const CustomButton({
     super.key,
     required this.text,
     required this.styleType,
     required this.onPressed,
-    this.useSizedBox =
-        false, // Default to false, meaning FractionallySizedBox is used
+    this.useSizedBox = false,
+    this.isPrimaryColor = true,
   });
 
   @override
@@ -22,7 +23,9 @@ class CustomButton extends StatelessWidget {
       style: ButtonStyle(
         backgroundColor: WidgetStateProperty.all(
           styleType == ButtonStyleType.solid
-              ? AppColors.primaryColor
+              ? isPrimaryColor
+                  ? AppColors.primaryColor
+                  : Colors.white
               : Colors.white,
         ),
         side: WidgetStatePropertyAll(
@@ -31,8 +34,8 @@ class CustomButton extends StatelessWidget {
               : BorderSide.none,
         ),
         foregroundColor: WidgetStateProperty.all(
-          styleType == ButtonStyleType.border
-              ? AppColors.primaryColor
+          styleType == ButtonStyleType.border || !isPrimaryColor
+              ? AppColors.primaryColor 
               : Colors.white,
         ),
         shape: WidgetStateProperty.all(
