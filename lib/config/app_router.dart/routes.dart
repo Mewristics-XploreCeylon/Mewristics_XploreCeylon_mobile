@@ -10,6 +10,7 @@ class Routes {
   static const visitDetails = 'visitDetails';
   static const visaApplicationFee = 'visaApplicationFee';
   static const declaration = 'declaration';
+  static const onboarding = 'onboarding';
 
   static const signIn = "signIn";
   static const signUp = "signUp";
