@@ -29,7 +29,7 @@ class AppRouter {
           path: '/',
           pageBuilder: (BuildContext context, GoRouterState state) {
             // return const MaterialPage(child: VisaOnboarding());
-            return const MaterialPage(child: SignUpNext());
+            return const MaterialPage(child: VisaPersonalInformation());
           }),
 
       // Routes for screens
