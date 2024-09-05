@@ -49,7 +49,7 @@ class PreviousPassportDetails extends StatelessWidget {
                       styleType: ButtonStyleType.solid,
                       onPressed: () {
                         GoRouter.of(context)
-                            .pushNamed(Routes.emergencyContacts);
+                            .pushNamed(Routes.familyBackground);
                       })
                 ],
               ),
