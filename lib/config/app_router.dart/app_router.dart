@@ -7,7 +7,9 @@ import 'package:xploreceylon_mobile/screens/onboarding_screens/onboarding_screen
 import 'package:xploreceylon_mobile/screens/visa_screens/emergency_contacts.dart';
 import 'package:xploreceylon_mobile/screens/visa_screens/past_passport_details.dart';
 import 'package:xploreceylon_mobile/screens/visa_screens/present_passport_details.dart';
+import 'package:xploreceylon_mobile/screens/visa_screens/applicants_details.dart';
 import 'package:xploreceylon_mobile/screens/visa_screens/visa_application_fee.dart';
+import 'package:xploreceylon_mobile/screens/visa_screens/family_background.dart';
 import 'package:xploreceylon_mobile/screens/visa_screens/visit_details.dart';
 import 'package:xploreceylon_mobile/screens/visa_screens/visa_onboarding.dart';
 import 'package:xploreceylon_mobile/screens/visa_screens/visa_personal_information.dart';
@@ -52,6 +54,12 @@ class AppRouter {
             return const MaterialPage(child: VisaPersonalInformation());
           }),
       GoRoute(
+          name: Routes.applicantsDetails,
+          path: "/applicantDetails",
+          pageBuilder: (BuildContext context, GoRouterState state) {
+            return const MaterialPage(child: ApplicantsDetails());
+          }),
+      GoRoute(
           name: Routes.presentPassportDetails,
           path: "/presentPassportDetails",
           pageBuilder: (BuildContext context, GoRouterState state) {
@@ -62,6 +70,12 @@ class AppRouter {
           path: "/previousPassportDetails",
           pageBuilder: (BuildContext context, GoRouterState state) {
             return const MaterialPage(child: PreviousPassportDetails());
+          }),
+      GoRoute(
+          name: Routes.familyBackground,
+          path: "/familyBackground",
+          pageBuilder: (BuildContext context, GoRouterState state) {
+            return const MaterialPage(child: FamilyBackground());
           }),
       GoRoute(
           name: Routes.emergencyContacts,

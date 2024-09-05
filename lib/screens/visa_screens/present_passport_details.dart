@@ -19,16 +19,15 @@ class PresentPassportDetails extends StatefulWidget {
 class _PresentPassportDetailsState extends State<PresentPassportDetails> {
   final _formKey = GlobalKey<FormState>();
 
-
   String _passportNumber = '';
   String _placeOfIssue = '';
   String _dateOfIssue = '';
   String _dateOfExpiry = '';
 
-
+  // Validators
   RegExp dateValidation = RegExp(r'^\d{2}/\d{2}/\d{4}$');
   RegExp passportNumberValidation = RegExp(r'^[a-zA-Z0-9]+$');
-    RegExp stringValidation = RegExp(r'^[a-zA-Z\s]+$');
+  RegExp stringValidation = RegExp(r'^[a-zA-Z\s]+$');
 
   @override
   Widget build(BuildContext context) {
@@ -37,20 +36,21 @@ class _PresentPassportDetailsState extends State<PresentPassportDetails> {
       body: SingleChildScrollView(
         child: Container(
           margin: EdgeInsets.symmetric(
-              horizontal: AppMargin.m24, vertical: AppMargin.m24),
+            horizontal: AppMargin.m24,
+            vertical: AppMargin.m24,
+          ),
           child: Form(
             key: _formKey,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
+                // Page Header
                 PageHeader(
                   title: "Details of the present passport",
                 ),
-                SizedBox(
-                  height: 60,
-                ),
-                
-                
+                SizedBox(height: 60),
+
+                // Passport Number Field
                 CustomTextField(
                   hint: "Passport Number",
                   label: "Passport Number",
@@ -64,23 +64,23 @@ class _PresentPassportDetailsState extends State<PresentPassportDetails> {
                   },
                   onSaved: (value) => _passportNumber = value!,
                 ),
-                
-          
+
+                // Place of Issue Field
                 CustomTextField(
                   hint: "Place of issue",
                   label: "Place of issue",
                   validator: (value) {
                     if (value == null || value.isEmpty) {
                       return 'Please enter the place of issue';
-                    }else if(!stringValidation.hasMatch(value)){
-                      'Please enter the place of issue';
+                    } else if (!stringValidation.hasMatch(value)) {
+                      return 'Please enter a valid place of issue';
                     }
                     return null;
                   },
                   onSaved: (value) => _placeOfIssue = value!,
                 ),
-                
-            
+
+                // Date of Issue Field
                 CustomTextField(
                   hint: "dd/mm/yyyy",
                   label: "Date of Issue",
@@ -94,8 +94,8 @@ class _PresentPassportDetailsState extends State<PresentPassportDetails> {
                   },
                   onSaved: (value) => _dateOfIssue = value!,
                 ),
-                
-              
+
+                // Date of Expiry Field
                 CustomTextField(
                   hint: "dd/mm/yyyy",
                   label: "Date of Expiry",
@@ -109,45 +109,64 @@ class _PresentPassportDetailsState extends State<PresentPassportDetails> {
                   },
                   onSaved: (value) => _dateOfExpiry = value!,
                 ),
-                
-                SizedBox(
-                  height: 50,
+
+                SizedBox(height: 50),
+
+                // Upload Image Section
+                Text(
+                  "Upload an image of the last page of your passport",
+                  style: Theme.of(context).textTheme.headlineMedium,
                 ),
-                
+                Padding(
+                  padding: const EdgeInsets.symmetric(vertical: AppMargin.m12),
+                  child: InkWell(
+                    child: Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+                        color: AppColors.primaryFeildColor,
+                      ),
+                      height: 150,
+                      child: Center(
+                        child: Icon(
+                          Icons.cloud_upload_outlined,
+                          color: AppColors.fieldTextColor,
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+
+                SizedBox(height: 50),
+
+                // Buttons Section
                 Row(
                   children: [
-                  
                     CustomButton(
                       text: "Save for later",
                       styleType: ButtonStyleType.border,
                       onPressed: () {
                         if (_formKey.currentState!.validate()) {
                           _formKey.currentState!.save();
-                      
                           print('Form Saved');
                         }
                       },
                     ),
-                    
                     Spacer(),
-                    
-                  
                     CustomButton(
                       text: "Next",
                       styleType: ButtonStyleType.solid,
                       onPressed: () {
                         if (_formKey.currentState!.validate()) {
                           _formKey.currentState!.save();
-                          GoRouter.of(context).pushNamed(Routes.previousPassportDetails);
+                          GoRouter.of(context)
+                              .pushNamed(Routes.previousPassportDetails);
                         }
                       },
                     ),
                   ],
                 ),
-                
-                SizedBox(
-                  height: 100,
-                ),
+
+                SizedBox(height: 100),
               ],
             ),
           ),

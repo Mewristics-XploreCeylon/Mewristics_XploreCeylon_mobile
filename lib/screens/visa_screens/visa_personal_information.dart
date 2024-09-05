@@ -60,7 +60,7 @@ class _VisaPersonalInformationState extends State<VisaPersonalInformation> {
                 PageHeader(title: "Personal Information"),
                 SizedBox(height: 60),
                 Text(
-                  "Upload an image of the last page your passport",
+                  "Upload an image of the last page of your passport",
                   style: Theme.of(context).textTheme.headlineMedium,
                 ),
                 Padding(
@@ -261,7 +261,6 @@ class _VisaPersonalInformationState extends State<VisaPersonalInformation> {
                       onPressed: () {
                         if (_formKey.currentState!.validate()) {
                           _formKey.currentState!.save();
-
                           print('Form Saved');
                         }
                       },
