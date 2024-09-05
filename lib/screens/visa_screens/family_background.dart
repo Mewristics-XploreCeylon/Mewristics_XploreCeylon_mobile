@@ -8,9 +8,10 @@ import '../../constants/sizes.dart';
 import '../../widgets/custom_button.dart';
 import '../../widgets/custom_text_field.dart';
 import '../../widgets/page_header.dart';
+import 'package:xploreceylon_mobile/widgets/custom_checkbutton.dart';
 
-class PreviousPassportDetails extends StatelessWidget {
-  const PreviousPassportDetails({super.key});
+class FamilyBackground extends StatelessWidget {
+  const FamilyBackground({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -24,16 +25,22 @@ class PreviousPassportDetails extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               PageHeader(
-                title: "Details of the previous passport",
+                title: "Family Background",
               ),
               SizedBox(
                 height: 60,
               ),
+              //text
               CustomTextField(
-                  hint: "Passport Number", label: "Passport Number"),
-              CustomTextField(hint: "Place of issue", label: "Place of issue"),
-              CustomTextField(hint: "dd/mm/yy", label: "Date of Issue"),
-              CustomTextField(hint: "dd/mm/yy", label: "Date of Expiry"),
+                  hint: "Full Name of your Spouse", label: "Full Name of your Spouse"),
+              CustomTextField(hint: "dd/mm/yyyy", label: "Spouse's Date of Birth"),
+              CustomTextField(hint: "Nationality", label: "Spouse's Nationality"),
+              CustomTextField(hint: "Current Profession/ Occupation", label: "Profession/ Occupation of Spouse"),
+              CustomTextField(hint: "Contact Number", label: "Spouse's Contact Number"),
+              CustomTextField(hint: "Passport Number", label: "Spouse's Passport Number"),
+              CustomTextField(hint: "dd/mm/yyyy", label: "Date of Expiry"),
+              CustomTextField(hint: "Postal Address", label: "Spouse's Postal Address"),
+
               SizedBox(
                 height: 50,
               ),
@@ -49,7 +56,7 @@ class PreviousPassportDetails extends StatelessWidget {
                       styleType: ButtonStyleType.solid,
                       onPressed: () {
                         GoRouter.of(context)
-                            .pushNamed(Routes.familyBackground);
+                            .pushNamed(Routes.emergencyContacts);
                       })
                 ],
               ),

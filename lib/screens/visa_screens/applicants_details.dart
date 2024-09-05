@@ -8,9 +8,10 @@ import '../../constants/sizes.dart';
 import '../../widgets/custom_button.dart';
 import '../../widgets/custom_text_field.dart';
 import '../../widgets/page_header.dart';
+import 'package:xploreceylon_mobile/widgets/custom_checkbutton.dart';
 
-class PreviousPassportDetails extends StatelessWidget {
-  const PreviousPassportDetails({super.key});
+class ApplicantsDetails extends StatelessWidget {
+  const ApplicantsDetails({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -24,16 +25,23 @@ class PreviousPassportDetails extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               PageHeader(
-                title: "Details of the previous passport",
+                title: "Applicant Details",
               ),
               SizedBox(
                 height: 60,
               ),
               CustomTextField(
-                  hint: "Passport Number", label: "Passport Number"),
-              CustomTextField(hint: "Place of issue", label: "Place of issue"),
-              CustomTextField(hint: "dd/mm/yy", label: "Date of Issue"),
-              CustomTextField(hint: "dd/mm/yy", label: "Date of Expiry"),
+                  hint: "Height in centimeters", label: "Height in Centimeters"),
+              CustomTextField(hint: "Any visible identification marks/ physical peculiarities", label: "Identification Marks/ Peculiarities"),
+              CustomCheckButton(
+                  label: "Do not Apply",
+                  style: Theme.of(context).textTheme.headlineSmall),
+              CustomTextField(hint: "Full address where you currently reside", label: "Address in Country of Domicile"),
+              CustomTextField(hint: "Address where you will stay in Sri Lanka", label: "Address in Sri Lanka"),
+              CustomTextField(hint: "Current Profession/ Occupation", label: "Profession/ Occupation"),
+              CustomTextField(hint: "Name of your current Employer", label: "Name of Employer"),
+              CustomTextField(hint: "Address of your current Employer", label: "Address of Employer"),
+              
               SizedBox(
                 height: 50,
               ),
@@ -49,7 +57,7 @@ class PreviousPassportDetails extends StatelessWidget {
                       styleType: ButtonStyleType.solid,
                       onPressed: () {
                         GoRouter.of(context)
-                            .pushNamed(Routes.familyBackground);
+                            .pushNamed(Routes.presentPassportDetails);
                       })
                 ],
               ),

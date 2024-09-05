@@ -29,6 +29,26 @@ class PresentPassportDetails extends StatelessWidget {
               SizedBox(
                 height: 60,
               ),
+              Text(
+                "Upload an image of the last page of your passport",
+                style: Theme.of(context).textTheme.headlineMedium,
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: AppMargin.m12),
+                child: InkWell(
+                  child: Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+                        color: AppColors.primaryFeildColor,
+                      ),
+                      height: 150,
+                      child: Center(
+                          child: Icon(
+                        Icons.cloud_upload_outlined,
+                        color: AppColors.fieldTextColor,
+                      ))),
+                ),
+              ),
               CustomTextField(
                   hint: "Passport Number", label: "Passport Number"),
               CustomTextField(hint: "Place of issue", label: "Place of issue"),

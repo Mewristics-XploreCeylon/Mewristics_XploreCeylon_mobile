@@ -44,7 +44,7 @@ class _VisaPersonalInformationState extends State<VisaPersonalInformation> {
                 height: 60,
               ),
               Text(
-                "Upload an image of the last page your passport",
+                "Upload a passport sized image of yourself",
                 style: Theme.of(context).textTheme.headlineMedium,
               ),
               Padding(
@@ -66,6 +66,7 @@ class _VisaPersonalInformationState extends State<VisaPersonalInformation> {
               SizedBox(height: 20),
               CustomTextField(hint: "Email Address", label: "Email Address"),
               CustomTextField(hint: "Name in Full", label: "Name in Full"),
+              CustomTextField(hint: "Mobile Number", label: "Mobile Number"),
               CustomDropdown<Gender>(
                 dataList: Gender.values,
                 hint: 'Select your gender',
@@ -171,7 +172,7 @@ class _VisaPersonalInformationState extends State<VisaPersonalInformation> {
                       styleType: ButtonStyleType.solid,
                       onPressed: () {
                         GoRouter.of(context)
-                            .pushNamed(Routes.presentPassportDetails);
+                            .pushNamed(Routes.applicantsDetails);
                       })
                 ],
               ),
