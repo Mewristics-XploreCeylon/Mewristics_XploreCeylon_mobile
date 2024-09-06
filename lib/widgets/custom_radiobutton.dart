@@ -9,13 +9,13 @@ class CustomRadioButton<T> extends StatefulWidget {
   final double spacing;
 
   const CustomRadioButton({
-    Key? key,
+    super.key,
     required this.options,
     required this.labelBuilder,
     this.initialValue,
     this.onChanged,
     this.spacing = 25.0, // Default spacing is 3.0
-  }) : super(key: key);
+  });
 
   @override
   _CustomRadioButtonState<T> createState() => _CustomRadioButtonState<T>();

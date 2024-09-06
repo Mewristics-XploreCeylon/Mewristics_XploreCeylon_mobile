@@ -35,7 +35,7 @@ class _ScanBiometricsState extends State<ScanBiometrics> {
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      appBar: CustomAppbar(),
+      appBar: const CustomAppbar(),
       body:
           // if (_supportState)
           //   const Text("This Device is Supported")
@@ -47,30 +47,30 @@ class _ScanBiometricsState extends State<ScanBiometrics> {
             horizontal: AppMargin.m24, vertical: AppMargin.m24),
         child: Column(
           children: [
-            PageHeader(
+            const PageHeader(
               title: "Capture Your Biometrics",
             ),
-            SizedBox(
+            const SizedBox(
               height: 40,
             ),
             Text(
               "To ensure the security of your application, we'll need to capture a facial scan. This process is quick and secure.",
               style: Theme.of(context).textTheme.headlineMedium,
             ),
-            SizedBox(
+            const SizedBox(
               height: 50,
             ),
-            Center(
+            const Center(
                 child:
                     Image(image: AssetImage("assets/images/biometrics.png"))),
-            SizedBox(
+            const SizedBox(
               height: 60,
             ),
             Text(
               "Please Authenticate in order to Proceed with the Visa Application Process.",
               style: Theme.of(context).textTheme.headlineMedium,
             ),
-            SizedBox(
+            const SizedBox(
               height: 60,
             ),
             FractionallySizedBox(
@@ -85,7 +85,7 @@ class _ScanBiometricsState extends State<ScanBiometrics> {
                 },
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 50,
             )
           ],
@@ -107,9 +107,9 @@ class _ScanBiometricsState extends State<ScanBiometrics> {
 
       print("Authenticated : $authenticated");
 
-      if (authenticated)
+      if (authenticated) {
         GoRouter.of(context).pushNamed(Routes.visaPersonalInformation);
-      ;
+      }
     } on PlatformException catch (e) {
       print(e);
     }

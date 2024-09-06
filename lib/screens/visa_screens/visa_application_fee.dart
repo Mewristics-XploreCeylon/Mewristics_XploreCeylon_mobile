@@ -7,7 +7,6 @@ import 'package:xploreceylon_mobile/widgets/custom_appbar.dart';
 import '../../config/app_router.dart/routes.dart';
 import '../../constants/sizes.dart';
 import '../../widgets/custom_button.dart';
-import '../../widgets/custom_text_field.dart';
 import '../../widgets/page_header.dart';
 import '../../widgets/payment_type_card.dart';
 
@@ -31,25 +30,25 @@ class _VisaApplicationFeeState extends State<VisaApplicationFee> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomAppbar(),
+      appBar: const CustomAppbar(),
       body: SingleChildScrollView(
         child: Container(
-          margin: EdgeInsets.symmetric(
+          margin: const EdgeInsets.symmetric(
               horizontal: AppMargin.m24, vertical: AppMargin.m24),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              PageHeader(
+              const PageHeader(
                 title: "Visa Application Fee",
               ),
-              SizedBox(
+              const SizedBox(
                 height: 60,
               ),
               Text(
                 "To complete your application, please pay the visa processing fee",
                 style: Theme.of(context).textTheme.headlineMedium,
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
               PaymentTypeCard(
@@ -82,7 +81,7 @@ class _VisaApplicationFeeState extends State<VisaApplicationFee> {
                 isSelected: _selectedPaymentMethod == "Google Pay",
                 onSelected: () => _onPaymentMethodChanged("Google Pay"),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 50,
               ),
               Row(
@@ -91,7 +90,7 @@ class _VisaApplicationFeeState extends State<VisaApplicationFee> {
                       text: "Save for later",
                       styleType: ButtonStyleType.border,
                       onPressed: () {}),
-                  Spacer(),
+                  const Spacer(),
                   CustomButton(
                       text: "Next",
                       styleType: ButtonStyleType.solid,
@@ -105,7 +104,7 @@ class _VisaApplicationFeeState extends State<VisaApplicationFee> {
                       })
                 ],
               ),
-              SizedBox(
+              const SizedBox(
                 height: 100,
               )
             ],

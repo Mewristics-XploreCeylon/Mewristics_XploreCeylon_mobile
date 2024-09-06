@@ -4,7 +4,6 @@ import 'package:xploreceylon_mobile/widgets/custom_appbar.dart';
 import 'package:xploreceylon_mobile/widgets/custom_checkbutton.dart';
 
 import '../../config/app_router.dart/routes.dart';
-import '../../constants/colors.dart';
 import '../../constants/sizes.dart';
 import '../../widgets/custom_button.dart';
 import '../../widgets/custom_text_field.dart';
@@ -36,30 +35,30 @@ class _EmergencyContactsState extends State<EmergencyContacts> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomAppbar(),
+      appBar: const CustomAppbar(),
       body: SingleChildScrollView(
         child: Container(
-          margin: EdgeInsets.symmetric(
+          margin: const EdgeInsets.symmetric(
               horizontal: AppMargin.m24, vertical: AppMargin.m24),
           child: Form(
             key: _formKey, 
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                PageHeader(
+                const PageHeader(
                   title: "Set up Emergency Contacts",
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 60,
                 ),
                 Text(
                     "For your safety during your travels, please provide two contacts to be notified in case of any emergencies.",
                     style: Theme.of(context).textTheme.headlineSmall),
-                SizedBox(height: 40),
+                const SizedBox(height: 40),
 
                 Text("Emergency Contact 01 - Own Country",
                     style: Theme.of(context).textTheme.bodyMedium),
-                SizedBox(height: 20),
+                const SizedBox(height: 20),
 
                 CustomTextField(
                   hint: "Name",
@@ -122,14 +121,14 @@ class _EmergencyContactsState extends State<EmergencyContacts> {
                 CustomCheckButton(
                     label: "Save emergency contact details to profile",
                     style: Theme.of(context).textTheme.headlineSmall),
-                SizedBox(
+                const SizedBox(
                   height: 50,
                 ),
 
              
                 Text("Emergency Contact 02 - Sri Lanka",
                     style: Theme.of(context).textTheme.bodyMedium),
-                SizedBox(height: 20),
+                const SizedBox(height: 20),
 
            
                 CustomTextField(
@@ -191,7 +190,7 @@ class _EmergencyContactsState extends State<EmergencyContacts> {
                 CustomCheckButton(
                     label: "Save emergency contact details to profile",
                     style: Theme.of(context).textTheme.headlineSmall),
-                SizedBox(
+                const SizedBox(
                   height: 50,
                 ),
 
@@ -208,7 +207,7 @@ class _EmergencyContactsState extends State<EmergencyContacts> {
                             print('Form Saved for Later');
                           }
                         }),
-                    Spacer(),
+                    const Spacer(),
                     CustomButton(
                         text: "Next",
                         styleType: ButtonStyleType.solid,
@@ -222,7 +221,7 @@ class _EmergencyContactsState extends State<EmergencyContacts> {
                   ],
                 ),
 
-                SizedBox(
+                const SizedBox(
                   height: 100,
                 )
               ],

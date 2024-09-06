@@ -1,36 +1,37 @@
-import 'package:dio/dio.dart';
 import 'package:equatable/equatable.dart';
 import 'package:xploreceylon_mobile/models/visa_info_model/visa_info_model.dart';
 
-// part 'visa_info_cubit.dart';
-
-abstract class VisaCubitState extends Equatable {
-  final VisaInfoModel? visaInfo;
-  final DioException? error;
-  const VisaCubitState(this.visaInfo, this.error);
+abstract class VisaInfoState extends Equatable {
+  final VisaInfoModel visaInfo;
+  const VisaInfoState({required this.visaInfo});
 
   @override
-  List<Object?> get props => [visaInfo, error];
+  List<Object?> get props => [visaInfo];
 }
 
-class VisaCubitInitial extends VisaCubitState {
-  const VisaCubitInitial({VisaInfoModel? visaInfo, DioException? error})
-      : super(visaInfo, error);
+class VisaInfoInitial extends VisaInfoState {
+  const VisaInfoInitial({required super.visaInfo});
 }
 
-class VisaCubitLoading extends VisaCubitState {
-  const VisaCubitLoading({VisaInfoModel? visaInfo, DioException? error})
-      : super(visaInfo, error);
+class GetVisaInfoState extends VisaInfoState {
+  final VisaInfoModel populatedVisaInfo;
+  const GetVisaInfoState({required this.populatedVisaInfo})
+      : super(visaInfo: populatedVisaInfo);
+
+  @override
+  List<Object?> get props => [populatedVisaInfo];
+
+  GetVisaInfoState copyWith({VisaInfoModel? visaInfo}) {
+    return GetVisaInfoState(
+      populatedVisaInfo: visaInfo ?? this.visaInfo,
+    );
+  }
 }
 
-class VisaCubitLoaded extends VisaCubitState {
-  const VisaCubitLoaded({VisaInfoModel? visaInfo, DioException? error})
-      : super(visaInfo, error);
+class VisaInfoError extends VisaInfoState {
+  final String error;
+  VisaInfoError({required this.error}) : super(visaInfo: VisaInfoModel());
+
+  @override
+  List<Object?> get props => [error];
 }
-
-class VisaCubitError extends VisaCubitState {
-  const VisaCubitError({VisaInfoModel? visaInfo, DioException? error})
-      : super(visaInfo, error);
-}
-
-

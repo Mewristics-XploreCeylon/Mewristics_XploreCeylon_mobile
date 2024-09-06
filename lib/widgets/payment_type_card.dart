@@ -9,12 +9,12 @@ class PaymentTypeCard extends StatelessWidget {
   final VoidCallback onSelected;
 
   const PaymentTypeCard({
-    Key? key,
+    super.key,
     required this.payment,
     required this.image,
     required this.isSelected,
     required this.onSelected,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -40,21 +40,21 @@ class PaymentTypeCard extends StatelessWidget {
                 Image(
                   image: AssetImage(image),
                 ),
-                SizedBox(
+                const SizedBox(
                   width: 40,
                 ),
                 Text(
                   payment,
                   style: Theme.of(context).textTheme.headlineMedium,
                 ),
-                Spacer(),
+                const Spacer(),
                 if (isSelected)
-                  Icon(
+                  const Icon(
                     Icons.radio_button_checked,
                     color: AppColors.primaryColor,
                   )
                 else
-                  Icon(
+                  const Icon(
                     Icons.radio_button_unchecked,
                     color: Colors.grey,
                   ),

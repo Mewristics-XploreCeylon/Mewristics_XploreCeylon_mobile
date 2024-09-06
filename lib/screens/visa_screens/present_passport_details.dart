@@ -38,27 +38,26 @@ class _PresentPassportDetailsState extends State<PresentPassportDetails> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomAppbar(),
+      appBar: const CustomAppbar(),
       body: SingleChildScrollView(
-        child: BlocProvider(
-          create: (context) => VisaCubit(VisaService()),
-          child: Container(
-            margin: EdgeInsets.symmetric(
-              horizontal: AppMargin.m24,
-              vertical: AppMargin.m24,
-            ),
-            child: Form(
-              key: _formKey,
-              child: BlocBuilder<VisaCubit, VisaCubitState>(
-                builder: (context, state) {
+        child: Container(
+          margin: const EdgeInsets.symmetric(
+            horizontal: AppMargin.m24,
+            vertical: AppMargin.m24,
+          ),
+          child: Form(
+            key: _formKey,
+            child: BlocBuilder<VisaCubit, VisaInfoState>(
+              builder: (context, state) {
+                if (state is GetVisaInfoState) {
                   return Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       // Page Header
-                      PageHeader(
+                      const PageHeader(
                         title: "Details of the present passport",
                       ),
-                      SizedBox(height: 60),
+                      const SizedBox(height: 60),
 
                       // Passport Number Field
                       CustomTextField(
@@ -121,7 +120,7 @@ class _PresentPassportDetailsState extends State<PresentPassportDetails> {
                         onSaved: (value) => _dateOfExpiry = value!,
                       ),
 
-                      SizedBox(height: 50),
+                      const SizedBox(height: 50),
 
                       // Upload Image Section
                       Text(
@@ -138,7 +137,7 @@ class _PresentPassportDetailsState extends State<PresentPassportDetails> {
                               color: AppColors.primaryFeildColor,
                             ),
                             height: 150,
-                            child: Center(
+                            child: const Center(
                               child: Icon(
                                 Icons.cloud_upload_outlined,
                                 color: AppColors.fieldTextColor,
@@ -148,7 +147,7 @@ class _PresentPassportDetailsState extends State<PresentPassportDetails> {
                         ),
                       ),
 
-                      SizedBox(height: 50),
+                      const SizedBox(height: 50),
 
                       // Buttons Section
                       Row(
@@ -163,35 +162,48 @@ class _PresentPassportDetailsState extends State<PresentPassportDetails> {
                               }
                             },
                           ),
-                          Spacer(),
+                          const Spacer(),
                           CustomButton(
                             text: "Next",
                             styleType: ButtonStyleType.solid,
                             onPressed: () {
                               if (_formKey.currentState!.validate()) {
                                 _formKey.currentState!.save();
+                                final readState =
+                                    context.read<VisaCubit>().state;
+                                print(readState);
 
-                                final updatedVisaInfo = VisaInfoModel(
-                                    user: widget.visaInfoModel.user,
-                                    emailAddress:
-                                        state.visaInfo!.emailAddress ?? '',
-                                    dateOfBirth:
-                                        state.visaInfo!.dateOfBirth ?? '',
-                                    placeOfBirth:
-                                        state.visaInfo!.placeOfBirth ?? '',
-                                    currentAddress:
-                                        state.visaInfo!.currentAddress ?? '',
-                                    nationality:
-                                        state.visaInfo!.nationality ?? '',
+                                // final updatedVisaInfo = VisaInfoModel(
+                                //     user: widget.visaInfoModel.user,
+                                //     emailAddress:
+                                //         state.visaInfo.emailAddress ?? '',
+                                //     dateOfBirth:
+                                //         state.visaInfo.dateOfBirth ?? '',
+                                //     placeOfBirth:
+                                //         state.visaInfo.placeOfBirth ?? '',
+                                //     currentAddress:
+                                //         state.visaInfo.currentAddress ?? '',
+                                //     nationality:
+                                //         state.visaInfo.nationality ?? '',
+                                //     passportNumber: _passportNumber,
+                                //     placeOfIssue: _placeOfIssue,
+                                //     dateOfIssue: _dateOfIssue,
+                                //     dateOfExpiry:
+                                //         _dateOfExpiry // change the type to string
+                                //     );
+                                final presentPassportDetails = VisaInfoModel(
                                     passportNumber: _passportNumber,
                                     placeOfIssue: _placeOfIssue,
                                     dateOfIssue: _dateOfIssue,
-                                    dateOfExpiry:
-                                        _dateOfExpiry // change the type to string
-                                    );
+                                    dateOfExpiry: _dateOfExpiry);
                                 context
                                     .read<VisaCubit>()
-                                    .updateVisaInfo(updatedVisaInfo);
+                                    .updatePresentPassportInfo(
+                                        _passportNumber,
+                                        _placeOfIssue,
+                                        _dateOfIssue,
+                                        _dateOfExpiry);
+
                                 GoRouter.of(context)
                                     .pushNamed(Routes.previousPassportDetails);
                               }
@@ -200,11 +212,12 @@ class _PresentPassportDetailsState extends State<PresentPassportDetails> {
                         ],
                       ),
 
-                      SizedBox(height: 100),
+                      const SizedBox(height: 100),
                     ],
                   );
-                },
-              ),
+                }
+                return const CircularProgressIndicator();
+              },
             ),
           ),
         ),

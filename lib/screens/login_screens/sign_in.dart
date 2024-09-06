@@ -14,26 +14,26 @@ class SignIn extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        margin: EdgeInsets.symmetric(
+        margin: const EdgeInsets.symmetric(
             horizontal: AppMargin.m24, vertical: AppMargin.m24),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            SizedBox(height: 100),
+            const SizedBox(height: 100),
             Text(
               "Welcome back!",
               style: Theme.of(context).textTheme.headlineLarge,
             ),
-            SizedBox(
+            const SizedBox(
               height: 30,
             ),
-            CustomTextField(hint: "Email Address", label: "Email Address"),
+            const CustomTextField(hint: "Email Address", label: "Email Address"),
             CustomTextField(
               hint: "Password",
               label: "Password",
               iconButton: IconButton(
                 onPressed: () {},
-                icon: Icon(Icons.remove_red_eye),
+                icon: const Icon(Icons.remove_red_eye),
               ),
             ),
             Row(
@@ -56,7 +56,7 @@ class SignIn extends StatelessWidget {
                   onTap: () {
                     
                   },
-                  child: Text(
+                  child: const Text(
                     "Forgot Password?",
                     style: TextStyle(
                       fontSize: 16,
@@ -67,7 +67,7 @@ class SignIn extends StatelessWidget {
                 ),
               ],
             ),
-            SizedBox(
+            const SizedBox(
               height: 50,
             ),
             FractionallySizedBox(
@@ -81,7 +81,7 @@ class SignIn extends StatelessWidget {
                 },
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
             Center(
@@ -91,7 +91,7 @@ class SignIn extends StatelessWidget {
                     "or sign in with",
                     style: Theme.of(context).textTheme.displaySmall,
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 20,
                   ),
                   Row(
@@ -123,7 +123,7 @@ class SignIn extends StatelessWidget {
                       ),
                     ],
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 20,
                   ),
                   Row(
@@ -136,7 +136,7 @@ class SignIn extends StatelessWidget {
                           GoRouter.of(context).pushNamed(Routes.signUp);
                         
                         },
-                        child: Text(
+                        child: const Text(
                           "Sign Up",
                           style: TextStyle(
                             fontSize: 16,

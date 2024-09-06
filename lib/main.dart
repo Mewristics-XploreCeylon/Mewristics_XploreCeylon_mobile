@@ -1,6 +1,11 @@
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:xploreceylon_mobile/config/app_router.dart/app_router.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
+import 'package:xploreceylon_mobile/screens/visa_screens/cubit/visa_info_cubit.dart';
+import 'package:xploreceylon_mobile/services/create_visa_info.dart';
+import 'package:xploreceylon_mobile/services/create_visa_service/visa_service.dart';
 
 import 'resources/theme.dart';
 
@@ -38,11 +43,18 @@ class _MainAppState extends State<MainApp> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp.router(
-      debugShowCheckedModeBanner: false,
-      title: 'XploreCeylon',
-      routerConfig: AppRouter().goRouterConfig,
-      theme: getApplicationTheme(),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider<VisaCubit>(
+          create: (_) => VisaCubit(VisaServiceApi(Dio())),
+        ),
+      ],
+      child: MaterialApp.router(
+        debugShowCheckedModeBanner: false,
+        title: 'XploreCeylon',
+        routerConfig: AppRouter().goRouterConfig,
+        theme: getApplicationTheme(),
+      ),
     );
   }
 }

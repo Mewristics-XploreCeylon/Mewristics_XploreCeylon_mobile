@@ -4,7 +4,6 @@ part 'visa_info_model.g.dart';
 
 @JsonSerializable()
 class VisaInfoModel {
-  final String? user;
   final String? nationality;
   final String? gender;
   final String? dateOfBirth;
@@ -41,8 +40,7 @@ class VisaInfoModel {
   final String? fingerprint;
 
   const VisaInfoModel({
-    this.dateOfBirth, 
-    this.user,
+    this.dateOfBirth,
     this.nationality,
     this.gender,
     this.placeOfBirth,
