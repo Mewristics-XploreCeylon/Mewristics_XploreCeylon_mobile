@@ -3,6 +3,7 @@ import 'package:go_router/go_router.dart';
 import 'package:xploreceylon_mobile/config/app_router.dart/routes.dart';
 import 'package:xploreceylon_mobile/main.dart';
 import 'package:xploreceylon_mobile/models/visa_info_model/visa_info_model.dart';
+import 'package:xploreceylon_mobile/screens/home/home.dart';
 import 'package:xploreceylon_mobile/screens/login_screens/sign_in.dart';
 import 'package:xploreceylon_mobile/screens/onboarding_screens/onboarding_screens.dart';
 import 'package:xploreceylon_mobile/screens/visa_screens/emergency_contacts.dart';
@@ -32,7 +33,7 @@ class AppRouter {
           path: '/',
           pageBuilder: (BuildContext context, GoRouterState state) {
             // return const MaterialPage(child: VisaOnboarding());
-            return const MaterialPage(child: VisaPersonalInformation());
+            return const MaterialPage(child: HomeScreen());
           }),
 
       // Routes for screens
@@ -128,7 +129,13 @@ class AppRouter {
           path: "/onboarding",
           pageBuilder: (BuildContext context, GoRouterState state) {
             return const MaterialPage(child: Onboarding());
-          })
+          }),
+      GoRoute(
+          name: Routes.home,
+          path: "/home",
+          pageBuilder: (BuildContext context, GoRouterState state) {
+            return const MaterialPage(child: HomeScreen());
+          }),
     ],
   );
 }

@@ -1,5 +1,3 @@
-
-
 class Routes {
   static const splash = '/';
 
@@ -9,7 +7,7 @@ class Routes {
   static const applicantsDetails = 'applicantsDetails';
   static const presentPassportDetails = 'presentPassportDetails';
   static const previousPassportDetails = 'previousPassportDetails';
-   static const familyBackground = 'familyBackground';
+  static const familyBackground = 'familyBackground';
   static const emergencyContacts = 'emergencyContacts';
   static const visitDetails = 'visitDetails';
   static const visaApplicationFee = 'visaApplicationFee';
@@ -19,4 +17,6 @@ class Routes {
   static const signIn = "signIn";
   static const signUp = "signUp";
   static const signUpNext = "signUpNext";
+
+  static const home = "home";
 }
