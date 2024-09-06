@@ -1,8 +1,9 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-
+import 'package:go_router/go_router.dart';
+import '../../config/app_router.dart/routes.dart';
 import '../../constants/colors.dart';
 import '../../constants/sizes.dart';
+import '../../widgets/horizontal_scrollabale_list.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -83,94 +84,105 @@ class HomeScreen extends StatelessWidget {
                   ],
                 ),
               )),
-          SizedBox(
-            height: 10,
-          ),
-          Padding(
-            padding: EdgeInsets.symmetric(
-                horizontal: AppMargin.m24, vertical: AppMargin.m24),
-            child: Column(
-              children: [
-                Container(
-                    decoration: BoxDecoration(
-                        color: AppColors.primaryFeildColor,
-                        borderRadius: BorderRadius.circular(10)),
-                    child: Padding(
-                      padding: const EdgeInsets.all(15.0),
-                      child: Row(
-                        children: [
-                          Icon(
-                            Icons.search,
-                            color: AppColors.fieldTextColor,
-                          ),
-                          SizedBox(
-                            width: 10,
-                          ),
-                          Text(
-                            "Search",
-                            style: Theme.of(context).textTheme.displaySmall,
-                          )
-                        ],
-                      ),
-                    )),
-                SizedBox(
-                  height: 20,
-                ),
-                Stack(
+          Expanded(
+            child: Padding(
+              padding: EdgeInsets.symmetric(
+                  horizontal: AppMargin.m24, vertical: AppMargin.m24),
+              child: SingleChildScrollView(
+                child: Column(
                   children: [
                     Container(
-                      height: 210,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(20),
-                        image: DecorationImage(
-                          image: AssetImage("assets/images/polonnaruwa.jpg"),
-                          fit: BoxFit.cover,
-                        ),
-                      ),
+                        decoration: BoxDecoration(
+                            color: AppColors.primaryFeildColor,
+                            borderRadius: BorderRadius.circular(10)),
+                        child: Padding(
+                          padding: const EdgeInsets.all(15.0),
+                          child: Row(
+                            children: [
+                              Icon(
+                                Icons.search,
+                                color: AppColors.fieldTextColor,
+                              ),
+                              SizedBox(
+                                width: 10,
+                              ),
+                              Text(
+                                "Search",
+                                style: Theme.of(context).textTheme.displaySmall,
+                              )
+                            ],
+                          ),
+                        )),
+                    SizedBox(
+                      height: 20,
                     ),
-                    Positioned(
-                      bottom: 10,
-                      right: 20,
-                      child: ElevatedButton(
-                        onPressed: () {},
-                        style: ElevatedButton.styleFrom(
-                          foregroundColor: AppColors.primaryColor,
-                          backgroundColor: Colors.white,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(8),
+                    Stack(
+                      children: [
+                        Container(
+                          height: 200,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(20),
+                            image: DecorationImage(
+                              image:
+                                  AssetImage("assets/images/polonnaruwa.jpg"),
+                              fit: BoxFit.cover,
+                            ),
                           ),
                         ),
-                        child: Text(
-                          "Apply for Visa",
-                          style: TextStyle(
-                            fontFamily: "poppins",
-                            fontSize: 14,
-                            fontWeight: FontWeight.w600,
-                            color: AppColors
-                                .primaryColor, // Use primary color for text
+                        Positioned(
+                          bottom: 10,
+                          right: 20,
+                          child: ElevatedButton(
+                            onPressed: () {
+                              GoRouter.of(context)
+                                  .pushNamed(Routes.visaOnboarding);
+                            },
+                            style: ElevatedButton.styleFrom(
+                              foregroundColor: AppColors.primaryColor,
+                              backgroundColor: Colors.white,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(8),
+                              ),
+                            ),
+                            child: Text(
+                              "Apply for Visa",
+                              style: TextStyle(
+                                fontFamily: "poppins",
+                                fontSize: 14,
+                                fontWeight: FontWeight.w600,
+                                color: AppColors.primaryColor,
+                              ),
+                            ),
                           ),
                         ),
-                      ),
+                      ],
+                    ),
+                    SizedBox(
+                      height: 20,
+                    ),
+                    Row(
+                      children: [
+                        Text(
+                          "Your preferences",
+                          style: Theme.of(context).textTheme.titleMedium,
+                        ),
+                        Spacer(),
+                        Text(
+                          "View more ..",
+                          style: Theme.of(context).textTheme.displaySmall,
+                        )
+                      ],
+                    ),
+                    SizedBox(
+                      height: 20,
+                    ),
+                    SizedBox(
+                      height: 250,
+                      child: HorizontalScrollableList(),
                     ),
                   ],
                 ),
-                SizedBox(
-                  height: 20,
-                ),
-                Row(
-                  children: [
-                    Text(
-                      "Your preferences",
-                      style: Theme.of(context).textTheme.titleMedium,
-                    ),
-                    Spacer(),
-                    Text(
-                      "View more ..",
-                      style: Theme.of(context).textTheme.displaySmall,
-                    )
-                  ],
-                )
-              ],
+              ),
             ),
           ),
         ],
