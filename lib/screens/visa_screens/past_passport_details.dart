@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:xploreceylon_mobile/screens/visa_screens/cubit/visa_info_cubit.dart';
+import 'package:xploreceylon_mobile/screens/visa_screens/cubit/visa_info_state.dart';
+import 'package:xploreceylon_mobile/services/create_visa_info.dart';
 import 'package:xploreceylon_mobile/widgets/custom_appbar.dart';
 
 import '../../config/app_router.dart/routes.dart';
-import '../../constants/colors.dart';
 import '../../constants/sizes.dart';
 import '../../widgets/custom_button.dart';
 import '../../widgets/custom_text_field.dart';
@@ -13,7 +16,8 @@ class PreviousPassportDetails extends StatefulWidget {
   const PreviousPassportDetails({super.key});
 
   @override
-  _PreviousPassportDetailsState createState() => _PreviousPassportDetailsState();
+  _PreviousPassportDetailsState createState() =>
+      _PreviousPassportDetailsState();
 }
 
 class _PreviousPassportDetailsState extends State<PreviousPassportDetails> {
@@ -26,29 +30,27 @@ class _PreviousPassportDetailsState extends State<PreviousPassportDetails> {
 
   RegExp dateValidation = RegExp(r'^\d{2}/\d{2}/\d{4}$');
   RegExp passportNumberValidation = RegExp(r'^[a-zA-Z0-9]+$');
-    RegExp stringValidation = RegExp(r'^[a-zA-Z\s]+$');
+  RegExp stringValidation = RegExp(r'^[a-zA-Z\s]+$');
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomAppbar(),
+      appBar: const CustomAppbar(),
       body: SingleChildScrollView(
         child: Container(
-          margin: EdgeInsets.symmetric(
+          margin: const EdgeInsets.symmetric(
               horizontal: AppMargin.m24, vertical: AppMargin.m24),
           child: Form(
-            key: _formKey, 
+            key: _formKey,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                PageHeader(
+                const PageHeader(
                   title: "Details of the previous passport",
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 60,
                 ),
-                
-            
                 CustomTextField(
                   hint: "Passport Number",
                   label: "Passport Number",
@@ -62,23 +64,19 @@ class _PreviousPassportDetailsState extends State<PreviousPassportDetails> {
                   },
                   onSaved: (value) => _passportNumber = value!,
                 ),
-                
-  
                 CustomTextField(
                   hint: "Place of issue",
                   label: "Place of issue",
                   validator: (value) {
                     if (value == null || value.isEmpty) {
                       return 'Please enter the place of issue';
-                    }else if (!stringValidation.hasMatch(value)){
+                    } else if (!stringValidation.hasMatch(value)) {
                       return 'Please enter the place of issue';
                     }
                     return null;
                   },
                   onSaved: (value) => _placeOfIssue = value!,
                 ),
-                
-           
                 CustomTextField(
                   hint: "dd/mm/yyyy",
                   label: "Date of Issue",
@@ -92,8 +90,6 @@ class _PreviousPassportDetailsState extends State<PreviousPassportDetails> {
                   },
                   onSaved: (value) => _dateOfIssue = value!,
                 ),
-                
-       
                 CustomTextField(
                   hint: "dd/mm/yyyy",
                   label: "Date of Expiry",
@@ -107,11 +103,9 @@ class _PreviousPassportDetailsState extends State<PreviousPassportDetails> {
                   },
                   onSaved: (value) => _dateOfExpiry = value!,
                 ),
-                
-                SizedBox(
+                const SizedBox(
                   height: 50,
                 ),
-                
                 Row(
                   children: [
                     CustomButton(
@@ -121,27 +115,42 @@ class _PreviousPassportDetailsState extends State<PreviousPassportDetails> {
                         if (_formKey.currentState!.validate()) {
                           _formKey.currentState!.save();
                           print('Form Saved');
+                          final stateRead = context.read<VisaCubit>().state;
                         }
                       },
                     ),
-                    
-                    Spacer(),
-
+                    const Spacer(),
                     CustomButton(
                       text: "Next",
                       styleType: ButtonStyleType.solid,
                       onPressed: () {
                         if (_formKey.currentState!.validate()) {
                           _formKey.currentState!.save();
-                        
-                          GoRouter.of(context).pushNamed(Routes.emergencyContacts);
+
+                          final visaInfo = context.read<VisaCubit>().state;
+
+                          if (visaInfo is GetVisaInfoState) {
+                            context.read<VisaCubit>().updatePastPassportInfo(
+                                _passportNumber,
+                                _placeOfIssue,
+                                _dateOfIssue,
+                                _dateOfExpiry);
+                            // print(
+                            //     "email ${visaInfo.populatedVisaInfo.emailAddress}");
+                            // print(
+                            //     "pre passport ${visaInfo.populatedVisaInfo.prevPassportNumber}");
+                            // print(
+                            //     "passport ${visaInfo.populatedVisaInfo.passportNumber}");
+                          }
+
+                          GoRouter.of(context)
+                              .pushNamed(Routes.emergencyContacts);
                         }
                       },
                     ),
                   ],
                 ),
-                
-                SizedBox(
+                const SizedBox(
                   height: 100,
                 ),
               ],

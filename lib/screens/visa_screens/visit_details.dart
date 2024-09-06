@@ -4,7 +4,6 @@ import 'package:xploreceylon_mobile/widgets/custom_appbar.dart';
 import 'package:xploreceylon_mobile/widgets/custom_radiobutton.dart';
 
 import '../../config/app_router.dart/routes.dart';
-import '../../constants/colors.dart';
 import '../../constants/sizes.dart';
 import '../../widgets/custom_button.dart';
 import '../../widgets/custom_text_field.dart';
@@ -16,48 +15,48 @@ class VisitDetails extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomAppbar(),
+      appBar: const CustomAppbar(),
       body: SingleChildScrollView(
         child: Container(
-          margin: EdgeInsets.symmetric(
+          margin: const EdgeInsets.symmetric(
               horizontal: AppMargin.m24, vertical: AppMargin.m24),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              PageHeader(
+              const PageHeader(
                 title: "Visa Details",
               ),
-              SizedBox(
+              const SizedBox(
                 height: 60,
               ),
-              CustomTextField(
+              const CustomTextField(
                   hint: "Objective", label: "Object of Present Visit:"),
-              CustomTextField(
+              const CustomTextField(
                   hint: "Route and Mode",
                   label: "Route and Mode of Travel to Sri Lanka"),
-              CustomTextField(hint: "Address", label: "Address During Stay"),
-              CustomTextField(
+              const CustomTextField(hint: "Address", label: "Address During Stay"),
+              const CustomTextField(
                   hint: "", label: "Period for Which Visit Visa is Required"),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
               Text(
                   "Whether Permission to Visit Sri Lanka or Extend Stay has been Refused Previously",
                   style: Theme.of(context).textTheme.headlineMedium),
               CustomRadioButton(
-                options: ["Yes", "No"],
+                options: const ["Yes", "No"],
                 labelBuilder: (option) => option,
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
-              CustomTextField(
+              const CustomTextField(
                   hint: "",
                   label: "Amount of Money in US\$ Available on Arrival"),
-              CustomTextField(
+              const CustomTextField(
                   hint: "Card details",
                   label: "If Credit Card Available, Name of Cards"),
-              SizedBox(
+              const SizedBox(
                 height: 50,
               ),
               Row(
@@ -66,7 +65,7 @@ class VisitDetails extends StatelessWidget {
                       text: "Save for later",
                       styleType: ButtonStyleType.border,
                       onPressed: () {}),
-                  Spacer(),
+                  const Spacer(),
                   CustomButton(
                       text: "Next",
                       styleType: ButtonStyleType.solid,
@@ -76,7 +75,7 @@ class VisitDetails extends StatelessWidget {
                       })
                 ],
               ),
-              SizedBox(
+              const SizedBox(
                 height: 100,
               )
             ],

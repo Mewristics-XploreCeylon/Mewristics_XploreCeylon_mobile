@@ -13,7 +13,7 @@ class VisaOnboarding extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomAppbar(),
+      appBar: const CustomAppbar(),
       body: Container(
         margin: const EdgeInsets.symmetric(
             horizontal: AppMargin.m24, vertical: AppMargin.m24),

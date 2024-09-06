@@ -8,7 +8,7 @@ class CustomAppbar extends StatelessWidget implements PreferredSizeWidget {
   Widget build(BuildContext context) {
     return AppBar(
       leading: IconButton(
-        icon: Icon(Icons.arrow_back_ios_new_rounded),
+        icon: const Icon(Icons.arrow_back_ios_new_rounded),
         onPressed: () {
           GoRouter.of(context).pop();
         },

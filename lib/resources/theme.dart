@@ -32,9 +32,9 @@ ThemeData getApplicationTheme() {
           fontWeight: FontWeightManager.medium),
     ),
     progressIndicatorTheme:
-        ProgressIndicatorThemeData(color: AppColors.primaryColor),
-    drawerTheme: DrawerThemeData(backgroundColor: AppColors.primaryBGColor),
-    floatingActionButtonTheme: FloatingActionButtonThemeData(
+        const ProgressIndicatorThemeData(color: AppColors.primaryColor),
+    drawerTheme: const DrawerThemeData(backgroundColor: AppColors.primaryBGColor),
+    floatingActionButtonTheme: const FloatingActionButtonThemeData(
         backgroundColor: AppColors.primaryBGColor,
         foregroundColor: AppColors.primaryTextColor),
     appBarTheme: AppBarTheme(
@@ -43,6 +43,6 @@ ThemeData getApplicationTheme() {
         titleTextStyle: TextStyle(
             color: AppColors.primaryTextColor, fontSize: R.appSize.s24),
         elevation: R.appSize.s1,
-        iconTheme: IconThemeData(color: AppColors.primaryTextColor)),
+        iconTheme: const IconThemeData(color: AppColors.primaryTextColor)),
   );
 }

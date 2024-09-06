@@ -26,7 +26,7 @@ class CustomButton extends StatelessWidget {
           ),
           side: WidgetStateProperty.all(
             styleType == ButtonStyleType.border
-                ? BorderSide(color: AppColors.primaryColor, width: 2)
+                ? const BorderSide(color: AppColors.primaryColor, width: 2)
                 : BorderSide.none,
           ),
           foregroundColor: WidgetStateProperty.all(

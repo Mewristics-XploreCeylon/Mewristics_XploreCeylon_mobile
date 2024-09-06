@@ -9,7 +9,6 @@ part of 'visa_info_model.dart';
 VisaInfoModel _$VisaInfoModelFromJson(Map<String, dynamic> json) =>
     VisaInfoModel(
       dateOfBirth: json['dateOfBirth'] as String?,
-      user: json['user'] as String?,
       nationality: json['nationality'] as String?,
       gender: json['gender'] as String?,
       placeOfBirth: json['placeOfBirth'] as String?,
@@ -49,7 +48,6 @@ VisaInfoModel _$VisaInfoModelFromJson(Map<String, dynamic> json) =>
 
 Map<String, dynamic> _$VisaInfoModelToJson(VisaInfoModel instance) =>
     <String, dynamic>{
-      'user': instance.user,
       'nationality': instance.nationality,
       'gender': instance.gender,
       'dateOfBirth': instance.dateOfBirth,

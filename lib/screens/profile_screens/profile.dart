@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:xploreceylon_mobile/constants/colors.dart';
-import 'package:xploreceylon_mobile/widgets/custom_appbar.dart';
 // import 'package:xploreceylon_mobile/widgets/profile_appbar.dart';
 
 import '../../constants/sizes.dart';
@@ -36,23 +35,23 @@ class _ProfileState extends State<Profile> with SingleTickerProviderStateMixin {
     return Scaffold(
       // appBar: ProfileAppbar(),
       body: Container(
-        margin: EdgeInsets.symmetric(
+        margin: const EdgeInsets.symmetric(
             horizontal: AppMargin.m24, vertical: AppMargin.m24),
         child: Column(
           // crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            PageHeader(
+            const PageHeader(
               title: "Profile",
             ),
-            SizedBox(
+            const SizedBox(
               height: 40,
             ),
-            CircleAvatar(
+            const CircleAvatar(
               radius: 80,
               backgroundImage: NetworkImage(
                   "https://media.istockphoto.com/id/1348728804/photo/young-hiker-man-taking-selfie-portrait-on-the-top-of-mountain-happy-guy-smiling-at-camera.jpg?s=612x612&w=0&k=20&c=oq10Nnu9UF5Zr1yAcUifyhsG7BW4MDU3H2S6lxS3cPc="),
             ),
-            SizedBox(
+            const SizedBox(
               height: 40,
             ),
             TabBar(
