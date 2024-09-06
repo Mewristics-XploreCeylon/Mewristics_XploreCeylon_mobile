@@ -3,6 +3,7 @@ import 'package:go_router/go_router.dart';
 import 'package:xploreceylon_mobile/constants/colors.dart';
 import 'package:xploreceylon_mobile/widgets/custom_button.dart';
 import 'package:xploreceylon_mobile/widgets/custom_text_field.dart';
+import 'package:xploreceylon_mobile/services/auth_service.dart';
 
 import '../../config/app_router.dart/routes.dart';
 import '../../constants/sizes.dart';
@@ -51,9 +52,14 @@ class SignUp extends StatelessWidget {
               child: CustomButton(
                 text: "Continue",
                 styleType: ButtonStyleType.solid,
-                onPressed: () {
+                onPressed: () async {
                   // Handle sign in
-                  GoRouter.of(context).pushNamed(Routes.signUpNext);
+                  try {
+                    await AuthService().register("username", "email", "password");
+                    GoRouter.of(context).pushNamed(Routes.signUpNext);
+                  } catch (e) {
+                    // Handle registration error
+                  }
                 },
               ),
             ),
