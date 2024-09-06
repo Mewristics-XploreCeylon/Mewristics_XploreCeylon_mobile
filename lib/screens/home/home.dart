@@ -16,7 +16,7 @@ class HomeScreen extends StatelessWidget {
         leading: IconButton(
             onPressed: () {},
             icon: Icon(
-              Icons.arrow_back_ios_new_rounded,
+              Icons.menu,
               color: Colors.white,
             )),
         title: Center(
