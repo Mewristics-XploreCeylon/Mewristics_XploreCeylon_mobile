@@ -8,12 +8,12 @@ class CustomCheckButton extends StatefulWidget {
   final ValueChanged<bool?>? onChanged;
 
   const CustomCheckButton({
-    Key? key,
+    super.key,
     this.style,
     required this.label,
     this.initialValue = false,
     this.onChanged,
-  }) : super(key: key);
+  });
 
   @override
   _CustomCheckButtonState createState() => _CustomCheckButtonState();

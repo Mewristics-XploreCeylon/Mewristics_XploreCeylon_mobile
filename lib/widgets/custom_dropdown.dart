@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 import '../constants/colors.dart';
-import '../constants/sizes.dart';
 
 class CustomDropdown<T> extends StatefulWidget {
   final String hint;
@@ -14,7 +13,7 @@ class CustomDropdown<T> extends StatefulWidget {
   final String? selectedItem;
 
   const CustomDropdown(
-      {Key? key,
+      {super.key,
       required this.dataList,
       required this.hint,
       required this.label,
@@ -22,8 +21,7 @@ class CustomDropdown<T> extends StatefulWidget {
       required this.onChanged,
       this.readOnly = false,
       this.validator,
-      this.selectedItem})
-      : super(key: key);
+      this.selectedItem});
 
   @override
   // ignore: library_private_types_in_public_api
@@ -40,7 +38,7 @@ class _CustomDropdownState<T> extends State<CustomDropdown<T>> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(widget.label, style: Theme.of(context).textTheme.headlineMedium),
-          SizedBox(height: 10),
+          const SizedBox(height: 10),
           DropdownButtonFormField<T>(
             value: _selectedItem,
             hint: Text(
@@ -69,7 +67,7 @@ class _CustomDropdownState<T> extends State<CustomDropdown<T>> {
               filled: true,
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(10.0),
-                borderSide: BorderSide(
+                borderSide: const BorderSide(
                   color: Colors.transparent,
                 ),
               ),
@@ -80,7 +78,7 @@ class _CustomDropdownState<T> extends State<CustomDropdown<T>> {
               contentPadding: const EdgeInsets.symmetric(horizontal: 10),
             ),
           ),
-          SizedBox(height: 20),
+          const SizedBox(height: 20),
         ],
       ),
     );

@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:xploreceylon_mobile/constants/colors.dart';
-import 'package:xploreceylon_mobile/widgets/custom_appbar.dart';
 import 'package:xploreceylon_mobile/widgets/custom_button.dart';
 import 'package:xploreceylon_mobile/widgets/custom_text_field.dart';
 
@@ -15,34 +13,34 @@ class SignUpNext extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        margin: EdgeInsets.symmetric(
+        margin: const EdgeInsets.symmetric(
             horizontal: AppMargin.m24, vertical: AppMargin.m24),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            SizedBox(height: 100),
+            const SizedBox(height: 100),
             Text(
               "Secure your account",
               style: Theme.of(context).textTheme.headlineLarge,
             ),
-            SizedBox(
+            const SizedBox(
               height: 30,
             ),
             Text(
               "Let’s personalize and secure your account.",
               style: Theme.of(context).textTheme.headlineMedium,
             ),
-            SizedBox(
+            const SizedBox(
               height: 30,
             ),
-            CustomTextField(
+            const CustomTextField(
                 hint: "Username", label: "Choose a unique username"),
             CustomTextField(
               hint: "Password",
               label: "Create a strong password",
               iconButton: IconButton(
                 onPressed: () {},
-                icon: Icon(Icons.remove_red_eye),
+                icon: const Icon(Icons.remove_red_eye),
               ),
             ),
             CustomTextField(
@@ -50,7 +48,7 @@ class SignUpNext extends StatelessWidget {
               label: "Confirm your password",
               iconButton: IconButton(
                 onPressed: () {},
-                icon: Icon(Icons.remove_red_eye),
+                icon: const Icon(Icons.remove_red_eye),
               ),
             ),
             Row(
@@ -65,7 +63,7 @@ class SignUpNext extends StatelessWidget {
                     style: Theme.of(context).textTheme.headlineMedium),
               ],
             ),
-            SizedBox(
+            const SizedBox(
               height: 30,
             ),
             FractionallySizedBox(
@@ -78,7 +76,7 @@ class SignUpNext extends StatelessWidget {
                 },
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 15,
             ),
             // Center the "Back" button with the icon
@@ -90,11 +88,11 @@ class SignUpNext extends StatelessWidget {
                 child: Row(
                   mainAxisSize: MainAxisSize.min, // Shrink to fit the content
                   children: [
-                    Icon(
+                    const Icon(
                       Icons.arrow_back_ios_sharp,
                       size: 15,
                     ),
-                    SizedBox(
+                    const SizedBox(
                         width: 5), // Optional spacing between icon and text
                     Text("Back",
                         style: Theme.of(context).textTheme.headlineMedium),
@@ -102,7 +100,7 @@ class SignUpNext extends StatelessWidget {
                 ),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
           ],

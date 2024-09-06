@@ -16,7 +16,7 @@ class CustomTextField extends StatefulWidget {
   final String? value;
 
   const CustomTextField(
-      {Key? key,
+      {super.key,
       required this.hint,
       required this.label,
       this.iconButton,
@@ -28,8 +28,7 @@ class CustomTextField extends StatefulWidget {
       this.onSaved,
       this.value,
       this.textInputAction,
-      this.onFieldSubmitted})
-      : super(key: key);
+      this.onFieldSubmitted});
 
   @override
   State<CustomTextField> createState() => _CustomTextFieldState();
@@ -59,7 +58,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(widget.label, style: Theme.of(context).textTheme.headlineMedium),
-          SizedBox(height: 10),
+          const SizedBox(height: 10),
           TextFormField(
             //maxLines: widget.maxLines,
             textInputAction: widget.textInputAction,
@@ -119,7 +118,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
               ),
             ),
           ),
-          SizedBox(height: 10)
+          const SizedBox(height: 10)
         ],
       ),
     );
