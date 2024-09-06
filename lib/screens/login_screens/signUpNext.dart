@@ -79,21 +79,21 @@ class SignUpNext extends StatelessWidget {
             const SizedBox(
               height: 15,
             ),
-            // Center the "Back" button with the icon
+          
             Center(
               child: GestureDetector(
                 onTap: () {
                   GoRouter.of(context).pushNamed(Routes.signUp);
                 },
                 child: Row(
-                  mainAxisSize: MainAxisSize.min, // Shrink to fit the content
+                  mainAxisSize: MainAxisSize.min, 
                   children: [
                     const Icon(
                       Icons.arrow_back_ios_sharp,
                       size: 15,
                     ),
-                    const SizedBox(
-                        width: 5), // Optional spacing between icon and text
+                    SizedBox(
+                        width: 5), 
                     Text("Back",
                         style: Theme.of(context).textTheme.headlineMedium),
                   ],

@@ -43,9 +43,9 @@ class SignIn extends StatelessWidget {
                   children: [
                     Checkbox(
                       value:
-                          false, // Add the appropriate state management for this
+                          false, 
                       onChanged: (value) {
-                        // Handle remember me logic
+                      
                       },
                     ),
                     Text("Remember Me",
@@ -54,7 +54,7 @@ class SignIn extends StatelessWidget {
                 ),
                 GestureDetector(
                   onTap: () {
-                    // Navigate to Forgot Password Screen
+                    
                   },
                   child: const Text(
                     "Forgot Password?",
@@ -76,7 +76,7 @@ class SignIn extends StatelessWidget {
                 text: "Sign In",
                 styleType: ButtonStyleType.solid,
                 onPressed: () {
-                  // Handle sign in
+                
                   GoRouter.of(context).pushNamed(Routes.visaOnboarding);
                 },
               ),
@@ -134,7 +134,7 @@ class SignIn extends StatelessWidget {
                       GestureDetector(
                         onTap: () {
                           GoRouter.of(context).pushNamed(Routes.signUp);
-                          // Navigate to the signup screen
+                        
                         },
                         child: const Text(
                           "Sign Up",
