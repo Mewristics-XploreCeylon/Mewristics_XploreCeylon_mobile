@@ -35,7 +35,7 @@ class AppRouter {
           pageBuilder: (BuildContext context, GoRouterState state) {
             // return const MaterialPage(child: VisaOnboarding());
             return MaterialPage(
-              child: Declaration(),
+              child: SignUp(),
             );
           }),
 
@@ -128,7 +128,16 @@ class AppRouter {
           name: Routes.signUpNext,
           path: "/signUpNext",
           pageBuilder: (BuildContext context, GoRouterState state) {
-            return const MaterialPage(child: SignUpNext());
+            final Map<String, dynamic>? extra =
+                state.extra as Map<String, dynamic>?;
+
+            final String email = extra?['email'] as String? ?? '';
+            final String password = extra?['password'] as String? ?? '';
+            return MaterialPage(
+                child: SignUpNext(
+              email: email,
+              password: password,
+            ));
           }),
       GoRoute(
           name: Routes.onboarding,
