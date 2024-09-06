@@ -15,7 +15,8 @@ import '../../widgets/custom_text_field.dart';
 import '../../widgets/page_header.dart';
 
 class PresentPassportDetails extends StatefulWidget {
-  const PresentPassportDetails({super.key});
+  final VisaInfoModel visaInfoModel;
+  const PresentPassportDetails({super.key, required this.visaInfoModel});
 
   @override
   _PresentPassportDetailsState createState() => _PresentPassportDetailsState();
@@ -171,17 +172,23 @@ class _PresentPassportDetailsState extends State<PresentPassportDetails> {
                                 _formKey.currentState!.save();
 
                                 final updatedVisaInfo = VisaInfoModel(
-                                  user: state.visaInfo!.user ?? '',
-                                  emailAddress: state.visaInfo!.emailAddress??'',
-                                  dateOfBirth: state.visaInfo!.dateOfBirth??'',
-                                  placeOfBirth: state.visaInfo!.placeOfBirth??'',
-                                  currentAddress: state.visaInfo!.currentAddress??'',
-                                  nationality: state.visaInfo!.nationality??'',
-                                  passportNumber: _passportNumber,
-                                  placeOfIssue: _placeOfIssue,
-                                  dateOfIssue: _dateOfIssue,
-                                  dateOfExpiry: _dateOfExpiry // change the type to string
-                                );
+                                    user: widget.visaInfoModel.user,
+                                    emailAddress:
+                                        state.visaInfo!.emailAddress ?? '',
+                                    dateOfBirth:
+                                        state.visaInfo!.dateOfBirth ?? '',
+                                    placeOfBirth:
+                                        state.visaInfo!.placeOfBirth ?? '',
+                                    currentAddress:
+                                        state.visaInfo!.currentAddress ?? '',
+                                    nationality:
+                                        state.visaInfo!.nationality ?? '',
+                                    passportNumber: _passportNumber,
+                                    placeOfIssue: _placeOfIssue,
+                                    dateOfIssue: _dateOfIssue,
+                                    dateOfExpiry:
+                                        _dateOfExpiry // change the type to string
+                                    );
                                 context
                                     .read<VisaCubit>()
                                     .updateVisaInfo(updatedVisaInfo);

@@ -298,7 +298,7 @@ class _VisaPersonalInformationState extends State<VisaPersonalInformation> {
                                     .read<VisaCubit>()
                                     .updateVisaInfo(updatedVisaInfo);
                                 GoRouter.of(context)
-                                    .pushNamed(Routes.presentPassportDetails);
+                                    .pushNamed(Routes.presentPassportDetails, extra:state.visaInfo);
                               }
                             },
                           ),

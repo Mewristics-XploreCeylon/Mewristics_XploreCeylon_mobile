@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:xploreceylon_mobile/config/app_router.dart/routes.dart';
 import 'package:xploreceylon_mobile/main.dart';
+import 'package:xploreceylon_mobile/models/visa_info_model/visa_info_model.dart';
 import 'package:xploreceylon_mobile/screens/login_screens/sign_in.dart';
 import 'package:xploreceylon_mobile/screens/onboarding_screens/onboarding_screens.dart';
 import 'package:xploreceylon_mobile/screens/visa_screens/emergency_contacts.dart';
@@ -64,7 +65,9 @@ class AppRouter {
           name: Routes.presentPassportDetails,
           path: "/presentPassportDetails",
           pageBuilder: (BuildContext context, GoRouterState state) {
-            return const MaterialPage(child: PresentPassportDetails());
+            return  MaterialPage(child: PresentPassportDetails(
+              visaInfoModel: state.extra as VisaInfoModel,
+            ));
           }),
       GoRoute(
           name: Routes.previousPassportDetails,
