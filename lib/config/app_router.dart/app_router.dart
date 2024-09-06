@@ -51,7 +51,8 @@ class AppRouter {
           name: Routes.visaPersonalInformation,
           path: "/visaPersonalInformation",
           pageBuilder: (BuildContext context, GoRouterState state) {
-            return const MaterialPage(child: VisaPersonalInformation());
+            return const MaterialPage(child: VisaPersonalInformation(
+            ));
           }),
       GoRoute(
           name: Routes.applicantsDetails,
