@@ -19,6 +19,7 @@ class VisaCubit extends Cubit<VisaInfoState> {
 
   Future<void> createVisa(VisaInfoModel visaInfo, BuildContext context) async {
     try {
+      // replace the token with singleton token
       final httpResponse = await visaApiService!.createVisa(
           'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NmRiMmNlZjEyZjg2YWI5Yzg4OWFiODkiLCJpYXQiOjE3MjU2Mzk5MzgsImV4cCI6MTcyNTY0MzUzOH0.iXceaKGLRj-lqjV_0L1FEbyHbcM04bBLKDWvMorhO3I',
           visaInfo);

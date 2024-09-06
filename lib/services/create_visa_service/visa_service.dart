@@ -16,4 +16,18 @@ abstract class VisaServiceApi {
     @Header("Authorization") String token,
     @Body() VisaInfoModel visaModel,
   );
+
+  //  @POST("/login")
+  // Future<String> register(
+  //   @Body() RegisterInfoModel visaModel,
+  // );
+
+  // when implenting this in the screen
+
+  // Future<String> registerUser(RegisterObj obj) async {
+  //   final result = registerService.register(obj);
+  //   if(result != null){
+  //     // set the returning token to the singleton
+  //   }
+  // }
 }
