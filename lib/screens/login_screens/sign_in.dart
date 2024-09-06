@@ -3,6 +3,8 @@ import 'package:go_router/go_router.dart';
 import 'package:xploreceylon_mobile/constants/colors.dart';
 import 'package:xploreceylon_mobile/widgets/custom_button.dart';
 import 'package:xploreceylon_mobile/widgets/custom_text_field.dart';
+import 'package:xploreceylon_mobile/services/auth_service.dart';
+import 'package:xploreceylon_mobile/models/user.dart';
 
 import '../../config/app_router.dart/routes.dart';
 import '../../constants/sizes.dart';
@@ -75,9 +77,19 @@ class SignIn extends StatelessWidget {
               child: CustomButton(
                 text: "Sign In",
                 styleType: ButtonStyleType.solid,
-                onPressed: () {
+                onPressed: () async {
                   // Handle sign in
-                  GoRouter.of(context).pushNamed(Routes.visaOnboarding);
+                  try {
+                    await AuthService().login("email", "password");
+                    User user = User();
+                    if (user.token != null) {
+                      GoRouter.of(context).pushNamed(Routes.visaOnboarding);
+                    } else {
+                      // Handle login failure
+                    }
+                  } catch (e) {
+                    // Handle login error
+                  }
                 },
               ),
             ),

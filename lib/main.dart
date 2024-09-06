@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:xploreceylon_mobile/config/app_router.dart/app_router.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
+import 'package:xploreceylon_mobile/models/user.dart';
+import 'package:http/http.dart' as http;
 
 import 'resources/theme.dart';
 
@@ -44,5 +46,18 @@ class _MainAppState extends State<MainApp> {
       routerConfig: AppRouter().goRouterConfig,
       theme: getApplicationTheme(),
     );
+  }
+}
+
+class CustomHttpOverrides extends http.BaseClient {
+  final http.Client _inner = http.Client();
+
+  @override
+  Future<http.StreamedResponse> send(http.BaseRequest request) {
+    User user = User();
+    if (user.token != null) {
+      request.headers['Authorization'] = 'Bearer ${user.token}';
+    }
+    return _inner.send(request);
   }
 }
