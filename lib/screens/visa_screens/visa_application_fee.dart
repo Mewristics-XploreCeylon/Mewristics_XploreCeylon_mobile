@@ -5,7 +5,6 @@ import 'package:go_router/go_router.dart';
 import 'package:xploreceylon_mobile/widgets/custom_appbar.dart';
 
 import '../../config/app_router.dart/routes.dart';
-import '../../constants/colors.dart';
 import '../../constants/sizes.dart';
 import '../../widgets/custom_button.dart';
 import '../../widgets/custom_text_field.dart';
@@ -20,10 +19,9 @@ class VisaApplicationFee extends StatefulWidget {
 }
 
 class _VisaApplicationFeeState extends State<VisaApplicationFee> {
-  // Variable to keep track of the selected payment method
+
   String _selectedPaymentMethod = "";
 
-  // Method to handle the change in selected payment method
   void _onPaymentMethodChanged(String value) {
     setState(() {
       _selectedPaymentMethod = value;
